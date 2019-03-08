@@ -16,17 +16,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			$bot = new \LINE\LINEBot(new CurlHTTPClient('dr0CTYutcnUKHQSfdWOv9yMQI1F3HljZfcHcIedbCuFft8kMzH7fGbaMspAqand3KD2bN2TqqubE1sYvCDGDDBrX3cDJ6lGdGZoFxoajJnBKsh+K4tz/fsflL71LpZ/fdXWg5ar7ppN8ycx1vUUKOwdB04t89/1O/w1cDnyilFU='), [
-    'channelSecret' => 'c70f0350f357af8e48b1d407eaf05db1'
-]);
-
-$res = $bot->getProfile('U5e9acf1216646459855f5735a974b170');
-if ($res->isSucceeded()) {
-    $profile = $res->getJSONDecodedBody();
-    $displayName = $profile['displayName'];
-    $statusMessage = $profile['statusMessage'];
-    $pictureUrl = $profile['pictureUrl'];
-}
+			$text = $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
