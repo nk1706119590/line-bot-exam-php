@@ -9,15 +9,6 @@ $url = 'https://api.line.me/v2/bot/profile/'.$userId;
 
 $headers = array('Authorization: Bearer ' . $access_token);
 
-$bot = new LINEBot(new DummyHttpClient($this, $mock), ['channelSecret' => 'c70f0350f357af8e48b1d407eaf05db1']);
-        $res = $bot->getProfile(.$userId);
-        $this->assertEquals(200, $res->getHTTPStatus());
-        $this->assertTrue($res->isSucceeded());
-        $data = $res->getJSONDecodedBody();
-        $this->assertEquals('BOT API', $data['displayName']);
-        $this->assertEquals('userId', $data['userId']);
-        $this->assertEquals('https://example.com/abcdefghijklmn', $data['pictureUrl']);
-        $this->assertEquals('Hello, LINE!', $data['statusMessage']);
 
 
 $ch = curl_init($url);
