@@ -9,12 +9,15 @@ $url = 'https://api.line.me/v2/bot/profile/'.$userId;
 
 $headers = array('Authorization: Bearer ' . $access_token);
 
-$response = $bot->getProfile('U5e9acf1216646459855f5735a974b170');
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'c70f0350f357af8e48b1d407eaf05db1']);
+$response = $bot->getProfile(.$userId);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo $profile['displayName'];
     echo $profile['pictureUrl'];
     echo $profile['statusMessage'];
+}
+
 
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
