@@ -12,10 +12,7 @@
     $message = $arrayJson['events'][0]['message']['text'];
 
 
-//รับ id ว่ามาจากไหน
-   if(isset($arrayJson['events'][0]['source']['userId']){
-      $id = $arrayJson['events'][0]['source']['userId'];
-   }
+
 
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
