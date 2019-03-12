@@ -10,28 +10,6 @@
     
 
 
-
-
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('$accessToken');
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'c70f0350f357af8e48b1d407eaf05db1']);
-$response = $bot->getProfile('U04116f129718a17c788ee0654836a813');
-if ($response->isSucceeded()) {
-    $profile = $response->getJSONDecodedBody();
-    echo $profile['displayName'];
-    echo $profile['pictureUrl'];
-    echo $profile['statusMessage'];
-}
-
-
-
-
-
-
-
-
-
-
-
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
