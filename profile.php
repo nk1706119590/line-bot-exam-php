@@ -5,6 +5,10 @@ $access_token = 'dr0CTYutcnUKHQSfdWOv9yMQI1F3HljZfcHcIedbCuFft8kMzH7fGbaMspAqand
 
 $userId = 'U04116f129718a17c788ee0654836a813';
 
+$content = file_get_contents('php://input');
+$events = json_decode($content, true);
+
+
 $url = 'https://api.line.me/v2/bot/profile/'.$userId;
 
 $headers = array('Authorization: Bearer ' . $access_token);
