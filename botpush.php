@@ -37,10 +37,10 @@ if ($response->isSucceeded()) {
     echo "Name : " .$profile['displayName']."<br>";
     echo "Pic : " .$profile['pictureUrl']."<br>";
     echo "Status : " .$profile['statusMessage'];
-      echo $id;
+      
 }
 
-
+echo $id;
 //$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
 //$response = $bot->pushMessage($pushID, $textMessageBuilder);
 
