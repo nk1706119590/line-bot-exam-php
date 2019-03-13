@@ -14,15 +14,6 @@ $url = 'https://api.line.me/v2/bot/profile/'.$userId;
 $headers = array('Authorization: Bearer ' . $access_token);
 
 
-$response = $bot->getProfile(.$userId);
-if ($response->isSucceeded()) {
-    $profile = $response->getJSONDecodedBody();
-    echo $profile['displayName'];
-    echo $profile['pictureUrl'];
-    echo $profile['statusMessage'];
-}
-
-
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
