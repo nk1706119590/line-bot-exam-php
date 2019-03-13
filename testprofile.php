@@ -7,8 +7,8 @@ $channelSecret = 'c70f0350f357af8e48b1d407eaf05db1';
 
 $idPush = 'U5e9acf1216646459855f5735a974b170'
   
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient(. $access_token);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => . $channelSecret]);
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
 $response = $bot->pushMessage($idPush, $textMessageBuilder);
 
