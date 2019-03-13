@@ -1,2 +1,6 @@
 <?php
-echo "Hello LINE BOT";
+
+$id = $events['events'][0]['source']['userId'];
+
+
+echo $id;
