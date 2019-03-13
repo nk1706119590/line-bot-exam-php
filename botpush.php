@@ -14,7 +14,9 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
 if(!is_null($events)){
+    $replyToken = $events['events'][0]['replyToken'];
     $userID = $events['events'][0]['source']['userId'];
+    $sourceType = $events['events'][0]['source']['type'];
 }
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
