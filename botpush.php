@@ -13,24 +13,24 @@ $pushID = 'U5e9acf1216646459855f5735a974b170';
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
-$id = $events['events'][0]['source']['userId'];
-/*$message = $arrayJson['events'][0]['message']['text'];
+//$id = $events['events'][0]['source']['userId'];
+$message = $arrayJson['events'][0]['message']['text'];
 
-if(isset($arrayJson['events'][0]['source']['userId']){
-      $id = $arrayJson['events'][0]['source']['userId'];
+if(isset($events['events'][0]['source']['userId']){
+      $id = $events['events'][0]['source']['userId'];
    }
 
 if(!is_null($events)){
     $replyToken = $events['events'][0]['replyToken'];
     $userID = $events['events'][0]['source']['userId'];
     $sourceType = $events['events'][0]['source']['type'];
-}*/
+}
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 
-$response = $bot->getProfile($id);
+$response = $bot->getProfile($userID);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo "UserID : " .$profile['userId']."<br>";
