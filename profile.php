@@ -13,13 +13,7 @@ $url = 'https://api.line.me/v2/bot/profile/'.$userId;
 
 $headers = array('Authorization: Bearer ' . $access_token);
 
-$response = $bot->getProfile(.$userId);
-if ($response->isSucceeded()) {
-    $profile = $response->getJSONDecodedBody();
-    echo $profile['displayName'];
-    echo $profile['pictureUrl'];
-    echo $profile['statusMessage'];
-}
+
 
 
 
