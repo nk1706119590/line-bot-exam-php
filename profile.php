@@ -8,20 +8,9 @@ $events = json_decode($content, true);
 
 $userId = 'U04116f129718a17c788ee0654836a813';
 
-//$url = 'https://api.line.me/v2/bot/profile/'.$text;
+$url = 'https://api.line.me/v2/bot/profile/'. $userId;
 
 $headers = array('Authorization: Bearer ' . $access_token);
-
-
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient(. $access_token);
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => . $cs]);
-$response = $bot->getProfile(. $userId);
-if ($response->isSucceeded()) {
-    $profile = $response->getJSONDecodedBody();
-    echo $profile['displayName'];
-    echo $profile['pictureUrl'];
-    echo $profile['statusMessage'];
-}
 
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -30,7 +19,7 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 $result = curl_exec($ch);
 curl_close($ch);
 
-echo $result . "\r\n";
+echo $result .'br';
 
 
 
