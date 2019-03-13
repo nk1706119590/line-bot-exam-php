@@ -1,76 +1,122 @@
 <?php
-    $accessToken = "dr0CTYutcnUKHQSfdWOv9yMQI1F3HljZfcHcIedbCuFft8kMzH7fGbaMspAqand3KD2bN2TqqubE1sYvCDGDDBrX3cDJ6lGdGZoFxoajJnBKsh+K4tz/fsflL71LpZ/fdXWg5ar7ppN8ycx1vUUKOwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
-    
-   $content = file_get_contents('php://input');
-    $arrayJson = json_decode($content, true);
-    
-    $arrayHeader = array();
-    $arrayHeader[] = "Content-Type: application/json";
-    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-    
-    //รับข้อความจากผู้ใช้
-    $message = $arrayJson['events'][0]['message']['text'];
-
-
-
-
-#ตัวอย่าง Message Type "Text"
-    if($message == "สวัสดี"){
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
-        replyMsg($arrayHeader,$arrayPostData);
-    }
-    #ตัวอย่าง Message Type "Sticker"
-    else if($message == "ฝันดี"){
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "sticker";
-        $arrayPostData['messages'][0]['packageId'] = "2";
-        $arrayPostData['messages'][0]['stickerId'] = "46";
-        replyMsg($arrayHeader,$arrayPostData);
-    }
-    #ตัวอย่าง Message Type "Image"
-    else if($message == "รูปน้องแมว"){
-        $image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "image";
-        $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
-        $arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
-        replyMsg($arrayHeader,$arrayPostData);
-    }
-    #ตัวอย่าง Message Type "Location"
-    else if($message == "พิกัดสยามพารากอน"){
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = "สยามพารากอน";
-        $arrayPostData['messages'][0]['address'] =   "13.7465354,100.532752";
-        $arrayPostData['messages'][0]['latitude'] = "13.7465354";
-        $arrayPostData['messages'][0]['longitude'] = "100.532752";
-        replyMsg($arrayHeader,$arrayPostData);
-    }
-    #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
-    else if($message == "ลาก่อน"){
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "อย่าทิ้งกันไป";
-        $arrayPostData['messages'][1]['type'] = "sticker";
-        $arrayPostData['messages'][1]['packageId'] = "1";
-        $arrayPostData['messages'][1]['stickerId'] = "131";
-        replyMsg($arrayHeader,$arrayPostData);
-    }
-function replyMsg($arrayHeader,$arrayPostData){
-        $strUrl = "https://api.line.me/v2/bot/message/reply";
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$strUrl);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
-        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($arrayPostData));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $result = curl_exec($ch);
-        curl_close ($ch);
-
-    }
-   exit;
+// กรณีต้องการตรวจสอบการแจ้ง error ให้เปิด 3 บรรทัดล่างนี้ให้ทำงาน กรณีไม่ ให้ comment ปิดไป
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+ 
+// include composer autoload
+require_once '../vendor/autoload.php';
+ 
+// การตั้งเกี่ยวกับ bot
+require_once 'bot_settings.php';
+ 
+// กรณีมีการเชื่อมต่อกับฐานข้อมูล
+//require_once("dbconnect.php");
+ 
+ 
+$httpClient = new CurlHTTPClient('dr0CTYutcnUKHQSfdWOv9yMQI1F3HljZfcHcIedbCuFft8kMzH7fGbaMspAqand3KD2bN2TqqubE1sYvCDGDDBrX3cDJ6lGdGZoFxoajJnBKsh+K4tz/fsflL71LpZ/fdXWg5ar7ppN8ycx1vUUKOwdB04t89/1O/w1cDnyilFU=');
+$bot = new LINEBot($httpClient, array('channelSecret' => 'c70f0350f357af8e48b1d407eaf05db1'));
+ 
+// คำสั่งรอรับการส่งค่ามาของ LINE Messaging API
+$content = file_get_contents('php://input');
+ 
+// แปลงข้อความรูปแบบ JSON  ให้อยู่ในโครงสร้างตัวแปร array
+$events = json_decode($content, true);
+if(!is_null($events)){
+    // ถ้ามีค่า สร้างตัวแปรเก็บ replyToken ไว้ใช้งาน
+    $replyToken = $events['events'][0]['replyToken'];
+    $userID = $events['events'][0]['source']['userId'];
+    $sourceType = $events['events'][0]['source']['type'];
+    $is_postback = NULL;
+    $is_message = NULL;
+    if(isset($events['events'][0]) && array_key_exists('message',$events['events'][0])){
+        $is_message = true;
+        $typeMessage = $events['events'][0]['message']['type'];
+        $userMessage = $events['events'][0]['message']['text'];     
+        $idMessage = $events['events'][0]['message']['id']; 
+    }
+    if(isset($events['events'][0]) && array_key_exists('postback',$events['events'][0])){
+        $is_postback = true;
+        $dataPostback = NULL;
+        parse_str($events['events'][0]['postback']['data'],$dataPostback);;
+        $paramPostback = NULL;
+        if(array_key_exists('params',$events['events'][0]['postback'])){
+            if(array_key_exists('date',$events['events'][0]['postback']['params'])){
+                $paramPostback = $events['events'][0]['postback']['params']['date'];
+            }
+            if(array_key_exists('time',$events['events'][0]['postback']['params'])){
+                $paramPostback = $events['events'][0]['postback']['params']['time'];
+            }
+            if(array_key_exists('datetime',$events['events'][0]['postback']['params'])){
+                $paramPostback = $events['events'][0]['postback']['params']['datetime'];
+            }                       
+        }
+    }   
+    if(!is_null($is_postback)){
+        $textReplyMessage = "ข้อความจาก Postback Event Data = ";
+        if(is_array($dataPostback)){
+            $textReplyMessage.= json_encode($dataPostback);
+        }
+        if(!is_null($paramPostback)){
+            $textReplyMessage.= " \r\nParams = ".$paramPostback;
+        }
+        $replyData = new TextMessageBuilder($textReplyMessage);     
+    }
+    if(!is_null($is_message)){
+        switch ($typeMessage){
+            case 'text':
+                $userMessage = strtolower($userMessage); // แปลงเป็นตัวเล็ก สำหรับทดสอบ
+                switch ($userMessage) {
+                    case "p":
+                        // เรียกดูข้อมูลโพรไฟล์ของ Line user โดยส่งค่า userID ของผู้ใช้ LINE ไปดึงข้อมูล
+                        $response = $bot->getProfile($userID);
+                        if ($response->isSucceeded()) {
+                            // ดึงค่ามาแบบเป็น JSON String โดยใช้คำสั่ง getRawBody() กรณีเป้นข้อความ text
+                            $textReplyMessage = $response->getRawBody(); // return string            
+                            $replyData = new TextMessageBuilder($textReplyMessage);         
+                            break;              
+                        }
+                        // กรณีไม่สามารถดึงข้อมูลได้ ให้แสดงสถานะ และข้อมูลแจ้ง ถ้าไม่ต้องการแจ้งก็ปิดส่วนนี้ไปก็ได้
+                        $failMessage = json_encode($response->getHTTPStatus() . ' ' . $response->getRawBody());
+                        $replyData = new TextMessageBuilder($failMessage);
+                        break;              
+                    case "สวัสดี":
+                        // เรียกดูข้อมูลโพรไฟล์ของ Line user โดยส่งค่า userID ของผู้ใช้ LINE ไปดึงข้อมูล
+                        $response = $bot->getProfile($userID);
+                        if ($response->isSucceeded()) {
+                            // ดึงค่าโดยแปลจาก JSON String .ให้อยู่ใรูปแบบโครงสร้าง ตัวแปร array 
+                            $userData = $response->getJSONDecodedBody(); // return array     
+                            // $userData['userId']
+                            // $userData['displayName']
+                            // $userData['pictureUrl']
+                            // $userData['statusMessage']
+                            $textReplyMessage = 'สวัสดีครับ คุณ '.$userData['displayName'];             
+                            $replyData = new TextMessageBuilder($textReplyMessage);         
+                            break;              
+                        }
+                        // กรณีไม่สามารถดึงข้อมูลได้ ให้แสดงสถานะ และข้อมูลแจ้ง ถ้าไม่ต้องการแจ้งก็ปิดส่วนนี้ไปก็ได้
+                        $failMessage = json_encode($response->getHTTPStatus() . ' ' . $response->getRawBody());
+                        $replyData = new TextMessageBuilder($failMessage);
+                        break;                                                                                                                                                                                                                                          
+                    default:
+                        $textReplyMessage = " คุณไม่ได้พิมพ์ ค่า ตามที่กำหนด";
+                        $replyData = new TextMessageBuilder($textReplyMessage);         
+                        break;                                      
+                }
+                break;                                      
+            default:
+                $textReplyMessage = json_encode($events);
+                $replyData = new TextMessageBuilder($textReplyMessage);         
+                break;  
+        }
+    }
+}
+$response = $bot->replyMessage($replyToken,$replyData);
+if ($response->isSucceeded()) {
+    echo 'Succeeded!';
+    return;
+}
+ 
+// Failed
+echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 ?>
