@@ -17,8 +17,8 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $response = $bot->getProfile($pushID);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
-    echo "User ID" = $profile['userId'];
-    echo "Name" = $profile['displayName'];
+    echo $profile['userId'];
+    echo $profile['displayName'];
     echo $profile['pictureUrl'];
     echo $profile['statusMessage'];
 }
@@ -27,7 +27,7 @@ if ($response->isSucceeded()) {
 //$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
 //$response = $bot->pushMessage($pushID, $textMessageBuilder);
 
-echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+//echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
 
 
