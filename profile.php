@@ -6,9 +6,9 @@ $access_token = 'dr0CTYutcnUKHQSfdWOv9yMQI1F3HljZfcHcIedbCuFft8kMzH7fGbaMspAqand
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
-$userId = 'U04116f129718a17c788ee0654836a813';
+//$userId = 'U04116f129718a17c788ee0654836a813';
 
-$url = 'https://api.line.me/v2/bot/profile/'.$text;
+//$url = 'https://api.line.me/v2/bot/profile/'.$text;
 
 $headers = array('Authorization: Bearer ' . $access_token);
 
@@ -22,7 +22,7 @@ if (!is_null($events['events'])) {// Loop through each event
                         'type' => 'text',
                         'text' => $text
                     ];// Make a POST Request to Messaging API to reply to sender
-                    $url = 'https://api.line.me/v2/bot/message/reply';
+                    $url = 'https://api.line.me/v2/bot/profile/'.$text;
                     $data = [
                         'replyToken' => $replyToken,
                         'messages' => [$messages],
