@@ -19,6 +19,21 @@
       $arrayPostData['messages'][1]['stickerId'] = "34";
       pushMsg($arrayHeader,$arrayPostData);
    }
+
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+
+
+$response = $bot->getProfile($id);
+if ($response->isSucceeded()) {
+    $profile = $response->getJSONDecodedBody();
+    echo "UserID : " .$profile['userId']."<br>";
+    echo "Name : " .$profile['displayName']."<br>";
+    echo "Pic : " .$profile['pictureUrl']."<br>";
+    echo "Status : " .$profile['statusMessage'];
+      
+}
+
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
       $ch = curl_init();
