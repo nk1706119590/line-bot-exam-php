@@ -8,22 +8,22 @@ $access_token = 'dr0CTYutcnUKHQSfdWOv9yMQI1F3HljZfcHcIedbCuFft8kMzH7fGbaMspAqand
 
 $channelSecret = 'c70f0350f357af8e48b1d407eaf05db1';
 
-//$pushID = 'U5e9acf1216646459855f5735a974b170';
+$pushID = 'U5e9acf1216646459855f5735a974b170';
 
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
-if(!is_null($events)){
+/*if(!is_null($events)){
     $replyToken = $events['events'][0]['replyToken'];
     $userID = $events['events'][0]['source']['userId'];
     $sourceType = $events['events'][0]['source']['type'];
-}
+}*/
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 
-$response = $bot->getProfile($userID);
+$response = $bot->getProfile($pushID);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo "UserID : " .$profile['userId']."<br>";
