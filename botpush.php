@@ -26,11 +26,11 @@ if(!is_null($events)){
     $sourceType = $events['events'][0]['source']['type'];
 }*/
 
-/*$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 
-$response = $bot->getProfile($pushID);
+$response = $bot->getProfile($id);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo "UserID : " .$profile['userId']."<br>";
@@ -38,9 +38,8 @@ if ($response->isSucceeded()) {
     echo "Pic : " .$profile['pictureUrl']."<br>";
     echo "Status : " .$profile['statusMessage'];
       
-}*/
+}
 
-echo $id;
 //$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
 //$response = $bot->pushMessage($pushID, $textMessageBuilder);
 
