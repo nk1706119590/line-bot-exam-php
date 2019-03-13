@@ -14,7 +14,7 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
 //$id = $events['events'][0]['source']['userId'];
-$message = $arrayJson['events'][0]['message']['text'];
+/*$message = $arrayJson['events'][0]['message']['text'];
 
 if(isset($events['events'][0]['source']['userId']){
       $id = $events['events'][0]['source']['userId'];
@@ -25,12 +25,12 @@ if(!is_null($events)){
     $userID = $events['events'][0]['source']['userId'];
     $sourceType = $events['events'][0]['source']['type'];
 }
-
+*/
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 
-$response = $bot->getProfile($userID);
+$response = $bot->getProfile($pushID);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo "UserID : " .$profile['userId']."<br>";
