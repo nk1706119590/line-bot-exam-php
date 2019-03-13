@@ -17,11 +17,10 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $response = $bot->getProfile($pushID);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
-    //echo substr("UserID : " .$profile['userId'], -1)."<br>";
     echo "UserID : " .$profile['userId']."<br>";
-    echo "Name : " .$profile['displayName'];
-    echo $profile['pictureUrl'];
-    echo $profile['statusMessage'];
+    echo "Name : " .$profile['displayName']."<br>";
+    echo "Pic : " .$profile['pictureUrl']."<br>";
+    echo "Message : " .$profile['statusMessage'];
 }
 
 
