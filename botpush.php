@@ -23,7 +23,7 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 
-$response = $bot->getProfile($content);
+$response = $bot->getProfile($pushID);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo "UserID : " .$profile['userId']."<br>";
