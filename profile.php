@@ -6,7 +6,7 @@ $cs ='c70f0350f357af8e48b1d407eaf05db1';
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
-$userId = 'U04116f129718a17c788ee0654836a813';
+$userId = 'U5e9acf1216646459855f5735a974b170 ';
 
 $url = 'https://api.line.me/v2/bot/profile/'. $userId;
 
@@ -19,7 +19,7 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 $result = curl_exec($ch);
 curl_close($ch);
 
-echo $result .'br';
+echo $result;
 
 
 
