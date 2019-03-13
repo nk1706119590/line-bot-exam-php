@@ -3,7 +3,7 @@
 
 $access_token = 'dr0CTYutcnUKHQSfdWOv9yMQI1F3HljZfcHcIedbCuFft8kMzH7fGbaMspAqand3KD2bN2TqqubE1sYvCDGDDBrX3cDJ6lGdGZoFxoajJnBKsh+K4tz/fsflL71LpZ/fdXWg5ar7ppN8ycx1vUUKOwdB04t89/1O/w1cDnyilFU=';
 
-$bot = new \LINE\LINEBot($access_token, ['channelSecret' => '<c70f0350f357af8e48b1d407eaf05db1>'])
+//$bot = new \LINE\LINEBot($access_token, ['channelSecret' => '<c70f0350f357af8e48b1d407eaf05db1>'])
 
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
@@ -14,7 +14,13 @@ $url = 'https://api.line.me/v2/bot/profile/'.$userId;
 $headers = array('Authorization: Bearer ' . $access_token);
 
 
-
+$response = $bot->getProfile(.$userId);
+if ($response->isSucceeded()) {
+    $profile = $response->getJSONDecodedBody();
+    echo $profile['displayName'];
+    echo $profile['pictureUrl'];
+    echo $profile['statusMessage'];
+}
 
 
 $ch = curl_init($url);
