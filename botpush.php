@@ -23,7 +23,7 @@ $id = $arrayJson['events'][0]['source']['userId'];
 
 
 
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($arrayHeader);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 
