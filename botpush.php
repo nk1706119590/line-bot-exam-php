@@ -13,6 +13,7 @@ $pushID = 'U5e9acf1216646459855f5735a974b170';
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
+$id = $arrayJson['events'][0]['source']['userId'];
 /*$message = $arrayJson['events'][0]['message']['text'];
 
 if(isset($arrayJson['events'][0]['source']['userId']){
@@ -36,6 +37,7 @@ if ($response->isSucceeded()) {
     echo "Name : " .$profile['displayName']."<br>";
     echo "Pic : " .$profile['pictureUrl']."<br>";
     echo "Status : " .$profile['statusMessage'];
+      echo $id;
 }
 
 
