@@ -8,6 +8,14 @@ $userId = 'U04116f129718a17c788ee0654836a813';
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
+if(!is_null($events)){
+    // ถ้ามีค่า สร้างตัวแปรเก็บ replyToken ไว้ใช้งาน
+    $replyToken = $events['events'][0]['replyToken'];
+    $userID = $events['events'][0]['source']['userId'];
+    $sourceType = $events['events'][0]['source']['type'];
+    $is_postback = NULL;
+    $is_message = NULL;
+}
 
 $url = 'https://api.line.me/v2/bot/profile/'.$userId;
 
