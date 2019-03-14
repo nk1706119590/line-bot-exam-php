@@ -19,8 +19,8 @@ $id = $arrayJson['events'][0]['source']['userId'];
 else{
    echo "ไอดีไม่เข้าาาาาา ไปแก้ใหม่!!! ";
 }*/
-
-$response = $bot->getProfile($id);
+echo $id;
+/*$response = $bot->getProfile($id);
 echo "Respone" .$response;
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
@@ -29,7 +29,8 @@ if ($response->isSucceeded()) {
     echo "Pic : " .$profile['pictureUrl']."<br>";
     echo "Status : " .$profile['statusMessage'];
       
-}
+}*/
+
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
 $response1 = $bot->pushMessage($id, $textMessageBuilder);
