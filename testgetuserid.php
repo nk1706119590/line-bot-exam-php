@@ -11,19 +11,10 @@ $arrayJson = json_decode($content, true);
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
-if($arrayJson != null){
-  $replyToken = $arrayJson['events'][0]['replyToken'];
-}
+$id = $arrayJson['events'][0]['source']['userId'];
 
-$textMessageBuilder = new TextMessageBuilder(json_encode($arrayJson));
-
-$response = $bot->replyMessage($replyToken,$textMessageBuilder);
-if ($response->isSucceeded()) {
-    echo 'Succeeded!';
-    return;
-}
-//$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
-//$response = $bot->pushMessage($pushID, $textMessageBuilder);
-//echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
+$response = $bot->pushMessage($id, $textMessageBuilder);
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+
 ?>
