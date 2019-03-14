@@ -13,7 +13,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 $id = $arrayJson['events'][0]['source']['userId'];
 
-if(!$id){
+/*if(!$id){
    echo "5555";
 }
 else{
@@ -29,7 +29,7 @@ if ($response->isSucceeded()) {
     echo "Pic : " .$profile['pictureUrl']."<br>";
     echo "Status : " .$profile['statusMessage'];
       
-}
+}*/
 
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("https://lilyforlisa.herokuapp.com/botpush.php?id=".$id);
