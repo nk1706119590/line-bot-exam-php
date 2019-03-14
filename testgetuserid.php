@@ -14,13 +14,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $id = $arrayJson['events'][0]['source']['userId'];
 
 if(!$id){
-   echo "ไอดีเข้าจ้าาาาา";
-}
-else{
-   echo "ไอดีไม่เข้าาาาาา ไปแก้ใหม่!!! ";
-}
-//echo $id;
-/*$response = $bot->getProfile($id);
+   $response = $bot->getProfile($id);
 echo "Respone" .$response;
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
@@ -29,7 +23,13 @@ if ($response->isSucceeded()) {
     echo "Pic : " .$profile['pictureUrl']."<br>";
     echo "Status : " .$profile['statusMessage'];
       
-}*/
+}
+}
+else{
+   echo "ไอดีไม่เข้าาาาาา ไปแก้ใหม่!!! ";
+}
+//echo $id;
+
 
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("https://lilyforlisa.herokuapp.com/botpush.php?id=".$id);
