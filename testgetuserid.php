@@ -32,7 +32,7 @@ if ($response->isSucceeded()) {
 }*/
 
 
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($id);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("https://lilyforlisa.herokuapp.com/botpush.php?id=".$id);
 $response1 = $bot->pushMessage($id, $textMessageBuilder);
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 //echo $textMessageBuilder;
