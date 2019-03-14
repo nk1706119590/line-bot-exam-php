@@ -20,13 +20,7 @@ else{
    echo "ไอดีไม่เข้าาาาาา ไปแก้ใหม่!!! ";
 }*/
 
-
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
-$response1 = $bot->pushMessage($id, $textMessageBuilder);
-//echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
-
 $response = $bot->getProfile($id);
- echo "UserID : " .$profile['userId']."<br>";
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo "UserID : " .$profile['userId']."<br>";
@@ -35,4 +29,10 @@ if ($response->isSucceeded()) {
     echo "Status : " .$profile['statusMessage'];
       
 }
+
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
+$response1 = $bot->pushMessage($id, $textMessageBuilder);
+//echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+
+
 ?>
