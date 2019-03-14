@@ -8,6 +8,8 @@ $channelSecret = 'c70f0350f357af8e48b1d407eaf05db1';
 $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
 
+$id = $arrayJson['events'][0]['source']['userId'];
+
 if($id != null){
    echo "ไอดีเข้าจ้าาาาา";
 }
@@ -15,8 +17,6 @@ else{
    echo "ไอดีไม่เข้าาาาาา ไปแก้ใหม่!!! ";
 }
 
-   
-$id = $arrayJson['events'][0]['source']['userId'];
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
