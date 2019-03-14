@@ -21,7 +21,7 @@ if($message == "สวัสดี"){
          echo $arrayHeader;
      }
      else{
-        echo "อันยองงงง";
+        echo $message;
      }
     
    
