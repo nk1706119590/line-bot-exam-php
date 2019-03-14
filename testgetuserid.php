@@ -19,7 +19,7 @@ $id = $arrayJson['events'][0]['source']['userId'];
 else{
    echo "ไอดีไม่เข้าาาาาา ไปแก้ใหม่!!! ";
 }*/
-echo $id;
+//echo $id;
 /*$response = $bot->getProfile($id);
 echo "Respone" .$response;
 if ($response->isSucceeded()) {
