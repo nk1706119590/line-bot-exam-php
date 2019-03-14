@@ -32,7 +32,7 @@ if ($response->isSucceeded()) {
 }*/
 
 
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($id);
 $response1 = $bot->pushMessage($id, $textMessageBuilder);
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 //echo $textMessageBuilder;
