@@ -11,7 +11,7 @@ $arrayJson = json_decode($content, true);
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
-if(!is_null($arrayJson)){
+if($arrayJson != null){
   $replyToken = $arrayJson['events'][0]['replyToken'];
 }
 
