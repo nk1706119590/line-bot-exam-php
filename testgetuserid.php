@@ -18,7 +18,7 @@ $id = $arrayJson['events'][0]['source']['userId'];
    #ตัวอย่าง Message Type "Text + Sticker"
 if($message == "สวัสดี"){
      if($id != null){
-         echo ($arrayHeader,$arrayPostData);
+         echo $arrayHeader;
      }
      else{
         echo "อันยองงงง";
