@@ -5,9 +5,9 @@ $accessToken = "dr0CTYutcnUKHQSfdWOv9yMQI1F3HljZfcHcIedbCuFft8kMzH7fGbaMspAqand3
 $content = file_get_contents('php://input');
    $arrayJson = json_decode($content, true);
   
-/*$arrayHeader = array();
+$arrayHeader = array();
    $arrayHeader[] = "Content-Type: application/json";
-   $arrayHeader[] = "Authorization: Bearer {$accessToken}";*/
+   $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 
    //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
@@ -18,12 +18,12 @@ $id = $arrayJson['events'][0]['source']['userId'];
    #ตัวอย่าง Message Type "Text + Sticker"
 if($message == "สวัสดี"){
      if($id != null){
-         echo "สวัสดีจ้า";
+         echo ($arrayHeader,$arrayPostData);
      }
      else{
         echo "อันยองงงง";
      }
-    //pushMsg($arrayHeader,$arrayPostData);
+    
    
 }
  /* function pushMsg($arrayHeader,$arrayPostData){
