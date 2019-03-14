@@ -13,7 +13,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 $id = $arrayJson['events'][0]['source']['userId'];
 
-if(.$id != ""){
+if($id != ""){
    echo "ไอดีเข้าจ้าาาาา";
 }
 else{
