@@ -8,14 +8,15 @@ $channelSecret = 'c70f0350f357af8e48b1d407eaf05db1';
 $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
 
-
-$arrayHeader = array();
-   $arrayHeader[] = "Content-Type: application/json";
-   $arrayHeader[] = "Authorization: Bearer {$accessToken}";
+if($id != null){
+   echo "AA";
+}
+else{
+   echo "BB";
+}
 
    
 $id = $arrayJson['events'][0]['source']['userId'];
-   #ตัวอย่าง Message Type "Text + Sticker"
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
