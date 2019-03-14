@@ -22,7 +22,7 @@ else{
 
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
-$response = $bot->pushMessage($id, $textMessageBuilder;);
+$response1 = $bot->pushMessage($id, $textMessageBuilder;);
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
 $response = $bot->getProfile($id);
