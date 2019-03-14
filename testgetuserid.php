@@ -13,9 +13,16 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 $id = $arrayJson['events'][0]['source']['userId'];
 
+if($id != null){
+   echo "ไอดีเข้าจ้าาาาา";
+}
+else{
+   echo "ไอดีไม่เข้าาาาาา ไปแก้ใหม่!!! ";
+}
+
+
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
 $response = $bot->pushMessage($id, $textMessageBuilder);
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
-echo $id;
 
 ?>
