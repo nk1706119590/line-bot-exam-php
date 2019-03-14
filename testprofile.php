@@ -9,10 +9,10 @@ $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
 
 if($id != null){
-   echo "AA";
+   echo "ไอดีเข้าจ้าาาาา";
 }
 else{
-   echo "BB";
+   echo "ไอดีไม่เข้าาาาาา ไปแก้ใหม่!!! ";
 }
 
    
