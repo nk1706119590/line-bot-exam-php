@@ -22,7 +22,16 @@ else{
 
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
-$response = $bot->pushMessage($id, $textMessageBuilder,echo "ไอดีเข้าจ้าาาาา";);
+$response = $bot->pushMessage($id, $textMessageBuilder;);
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
+$response = $bot->getProfile($id);
+if ($response->isSucceeded()) {
+    $profile = $response->getJSONDecodedBody();
+    echo "UserID : " .$profile['userId']."<br>";
+    echo "Name : " .$profile['displayName']."<br>";
+    echo "Pic : " .$profile['pictureUrl']."<br>";
+    echo "Status : " .$profile['statusMessage'];
+      
+}
 ?>
