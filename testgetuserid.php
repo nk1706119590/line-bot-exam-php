@@ -26,12 +26,13 @@ $response1 = $bot->pushMessage($id, $textMessageBuilder);
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
 $response = $bot->getProfile($id);
+ echo "UserID : " .$profile['userId']."<br>";
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
-    echo $response->"UserID : " .$profile['userId']."<br>";
-    echo $response->"Name : " .$profile['displayName']."<br>";
-    echo $response->"Pic : " .$profile['pictureUrl']."<br>";
-    echo $response->"Status : " .$profile['statusMessage'];
+    echo "UserID : " .$profile['userId']."<br>";
+    echo "Name : " .$profile['displayName']."<br>";
+    echo "Pic : " .$profile['pictureUrl']."<br>";
+    echo "Status : " .$profile['statusMessage'];
       
 }
 ?>
