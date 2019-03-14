@@ -21,6 +21,7 @@ else{
 }*/
 
 $response = $bot->getProfile($id);
+echo "Respone" .$response;
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo "UserID : " .$profile['userId']."<br>";
