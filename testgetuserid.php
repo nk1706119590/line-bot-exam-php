@@ -15,6 +15,7 @@ $id = $arrayJson['events'][0]['source']['userId'];
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
 $response = $bot->pushMessage($id, $textMessageBuilder);
-echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+//echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+echo $id;
 
 ?>
