@@ -14,7 +14,7 @@ $id = $_GET["id"];
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
-/*$response = $bot->getProfile($id);
+$response = $bot->getProfile($id);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo "UserID : " .$profile['userId']."<br>";
@@ -22,8 +22,7 @@ if ($response->isSucceeded()) {
     echo "Pic : " .$profile['pictureUrl']."<br>";
     echo "Status : " .$profile['statusMessage'];
       
-}*/
+}
 /*$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($id);
 $response = $bot->pushMessage($id, $textMessageBuilder);*/
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
-echo "id".$id;
