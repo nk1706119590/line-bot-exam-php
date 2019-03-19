@@ -13,6 +13,9 @@ foreach ($events as $event) {
       }
       else if($event->getText() === 'list') {
         $result = getListOfRichmenu(getenv('CHANNEL_ACCESS_TOKEN'));
+        
+        print_r($result);
+        
         if(isset($result['richmenus']) && count($result['richmenus']) > 0) {
           $builders = new \LINE\LINEBot\MessageBuilder\MultiMessageBuilder();
           $columns = Array();
