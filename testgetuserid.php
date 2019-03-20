@@ -16,7 +16,9 @@ $context = stream_context_create($opts);
 
 $profile_json = file_get_contents('https://api.line.me/v2/bot/profile/<U5e9acf1216646459855f5735a974b170>', false, $context);
 $profile_array = json_decode($profile_json, true);
-echo($profile_array);
+
+
+echo $profile_array;
 
 
 ?>
