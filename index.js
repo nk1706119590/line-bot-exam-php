@@ -1,13 +1,13 @@
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
+firebase.auth().onAuthStateChanged(function(testlilylisa) {
+  if (testlilylisa) {
     // User is signed in.
 
     document.getElementById("user_div").style.display = "block";
     document.getElementById("login_div").style.display = "none";
 
-    var user = firebase.auth().currentUser;
+    var testlilylisa = firebase.auth().currentUser;
 
-    if(user != null){
+    if(testlilylisa != null){
 
       var email_id = user.email;
       document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
