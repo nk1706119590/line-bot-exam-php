@@ -20,8 +20,7 @@
     
 <script>
     function saveData() {
-        console.log("Insert Success");
-    /*var username = document.getElementById('txtUsername');
+    var username = document.getElementById('txtUsername');
     var password = document.getElementById('txtPassword');
     var conpassword = document.getElementById('txtConPassword');
     var name = document.getElementById('txtName');
@@ -31,7 +30,7 @@
 }
 
 function insertData(txtUsername, txtPassword, txtConPassword, txtName, ddlStatus) {
-    var firebaseRef = firebase.database().ref("testlilylisa");
+    var firebaseRef = firebase.database().ref("testlilylisa/");
     firebaseRef.push({
         username: txtUsername,
         password: txtPassword,
@@ -39,7 +38,7 @@ function insertData(txtUsername, txtPassword, txtConPassword, txtName, ddlStatus
         name: txtName,
         status: ddlStatus
     });
-    console.log("Insert Success");*/
+    console.log("Insert Success");
 }
 </script>
 </head>
