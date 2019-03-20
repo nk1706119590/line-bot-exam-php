@@ -1,9 +1,38 @@
 <html>
 <head>
 <title>ThaiCreate.Com Tutorials</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+<script>
+
+function saveData(){
+    var username = document.getElementById('txtUsername');
+    var password = document.getElementById('txtPassword');
+    var conpassword = document.getElementById('txtConPassword');
+    var name = document.getElementById('txtName');
+    var status = document.getElementById('ddlStatus');
+
+    insertData(txtUsername.value, txtPassword.value, txtConPassword.value, txtName.value, ddlStatus.value)
+}
+
+function insertData(username, password, conpassword, name, status){
+    var firebaseRef = firebase.database().ref("Student");
+    firebaseRef.push({
+        txtUsername: username,
+        txtPassword: password,
+        txtConPassword: conpassword,
+        txtName: name,
+        ddlStatus: status
+    });
+    console.log("Insert Success");
+}
+
+</script>
+
+  
+</head>
 <body>
-<form name="form1" method="post" action="save_register.php">
+<form name="form1" method="post">
   Register Form <br>
   <table width="400" border="1" style="width: 400px">
     <tbody>
