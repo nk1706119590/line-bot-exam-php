@@ -27,7 +27,7 @@ function insertData(txtUsername, txtPassword, txtConPassword, txtName, ddlStatus
 </script>
 </head>
 <body>
-<form name="form1" method="post" action="save_register.php">
+<form name="form1" method="post">
   Register Form <br>
   <table width="400" border="1" style="width: 400px">
     <tbody>
@@ -63,7 +63,7 @@ function insertData(txtUsername, txtPassword, txtConPassword, txtName, ddlStatus
     </tbody>
   </table>
   <br>
-  <input type="submit" name="Submit" value="Save">
+  <input type="submit" name="Submit" value="Save" onclick="saveData()">
 </form>
 </body>
 </html>
