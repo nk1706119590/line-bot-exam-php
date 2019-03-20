@@ -68,7 +68,7 @@ function insertData(username, password, conpassword, name, status){
     </tbody>
   </table>
   <br>
-  <input type="submit" name="Submit" value="Save">
+  <input type="submit" name="Submit" value="Save" oncilck="saveData()">
 </form>
 </body>
 </html>
