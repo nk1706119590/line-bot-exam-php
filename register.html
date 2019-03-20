@@ -30,7 +30,7 @@
 }
 
 function insertData(txtUsername, txtPassword, txtConPassword, txtName, ddlStatus) {
-    var firebaseRef = firebase.database().ref("testlilylisa");
+    var firebaseRef = firebase.database().ref("Student");
     firebaseRef.push({
         username: txtUsername,
         password: txtPassword,
