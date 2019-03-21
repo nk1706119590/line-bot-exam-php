@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 $accToken = "dr0CTYutcnUKHQSfdWOv9yMQI1F3HljZfcHcIedbCuFft8kMzH7fGbaMspAqand3KD2bN2TqqubE1sYvCDGDDBrX3cDJ6lGdGZoFxoajJnBKsh+K4tz/fsflL71LpZ/fdXWg5ar7ppN8ycx1vUUKOwdB04t89/1O/w1cDnyilFU=";
 $notifyURL = "https://notify-api.line.me/api/notify";
  
-$headers = array(
+$headers = (
     'Content-Type: application/x-www-form-urlencoded',
     'Authorization: Bearer '.$accToken
 );
