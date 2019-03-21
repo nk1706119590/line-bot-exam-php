@@ -37,8 +37,8 @@ var_dump($result);
 // การเช็คสถานะการทำงาน 
 $result = json_decode($result,TRUE);
 // ดูโครงสร้าง กรณีแปลงเป็น array แล้ว
-//echo "<pre>";
-//print_r($result);
+echo "<pre>";
+print_r($result);
  
 // ตรวจสอบข้อมูล ใช้เป็นเงื่อนไขในการทำงาน
 if(!is_null($result) && array_key_exists('status',$result)){
