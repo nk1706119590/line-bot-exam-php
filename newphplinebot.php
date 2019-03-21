@@ -11,7 +11,8 @@
 	$replyToken = $deCode['events'][0]['replyToken']; // เก็บค่า replyToken ไว้
 
   if($messages == "555"){
-    $messages['replyToken'] = $replyToken; 
+	  $messages = []; 
+    	  $messages['replyToken'] = $replyToken; 
 	  $messages['messages'][0] = getFormatTextMessage("ตัวเลข"); 
   }
 
