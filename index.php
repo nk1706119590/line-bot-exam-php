@@ -26,7 +26,7 @@ if($message == "สวัสดี"){
       pushMsg($arrayHeader,$arrayPostData);
    
 }
-else if($message == "teststicker"){
+if($message == "teststicker"){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][1]['type'] = "sticker";
       $arrayPostData['messages'][1]['packageId'] = "2";
