@@ -8,8 +8,8 @@ $channelSecret = 'c70f0350f357af8e48b1d407eaf05db1';
 $content = file_get_contents('php://input');
    $arrayJson = json_decode($content, true);
 
-$id = $arrayJson['events'][0]['source']['userId'];
-//$id = 'U5e9acf1216646459855f5735a974b170';
+//$id = $arrayJson['events'][0]['source']['userId'];
+$id = 'U5e9acf1216646459855f5735a974b170';
 
 //$id = $_GET["id"];
 
