@@ -9,9 +9,9 @@ $content = file_get_contents('php://input');
    $arrayJson = json_decode($content, true);
 
 //$id = $arrayJson['events'][0]['source']['userId'];
-$id = 'U5e9acf1216646459855f5735a974b170';
+//$id = 'U5e9acf1216646459855f5735a974b170';
 
-//$id = $_GET["id"];
+$id = $_GET["id"];
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
