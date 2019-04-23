@@ -19,6 +19,9 @@ $id = $arrayJson['events'][0]['source']['userId'];
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สามารถดูรายละเอียดโปรไฟล์ของคุณได้ที่ >> https://lilyforlisa.herokuapp.com/profile.php?id=".$id;
+        $arrayPostData['messages'][1]['type'] = "video";
+        $arrayPostData['messages'][1]['originalContentUrl'] = "https://www.youtube.com/watch?v=ejIxLu8yCJI";//ใส่ url ของ video ที่ต้องการส่ง
+        //$arrayPostData['messages'][0]['previewImageUrl'] = "";//ใส่รูป preview ของ video
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Sticker"
