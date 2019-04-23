@@ -20,6 +20,8 @@ $id = $arrayJson['events'][0]['source']['userId'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา User ID ของคุณคือ ".$id;
         replyMsg($arrayHeader,$arrayPostData);
+        
+        echo "อิอิ ".$id;
     }
     #ตัวอย่าง Message Type "Sticker"
     else if($message == "ฝันดี"){
@@ -74,5 +76,5 @@ function replyMsg($arrayHeader,$arrayPostData){
     }
    exit;
 
-echo "อิอิ ".$id;
+
 ?>
