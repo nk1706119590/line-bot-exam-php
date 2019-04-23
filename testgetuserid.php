@@ -23,7 +23,7 @@ $id = $arrayJson['events'][0]['source']['userId'];
  if($message == "สวัสดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $id;
+        $arrayPostData['messages'][0]['text'] = "555>>> ".$id;
         replyMsg($arrayHeader,$arrayPostData);
  }
 
