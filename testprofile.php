@@ -22,9 +22,9 @@ $id = $arrayJson['events'][0]['source']['userId'];
         $arrayPostData['messages'][1]['type'] = "video";
         $arrayPostData['messages'][1]['originalContentUrl'] = "https://www.youtube.com/watch?v=ejIxLu8yCJI";//ใส่ url ของ video ที่ต้องการส่ง
         $arrayPostData['messages'][1]['previewImageUrl'] = "https://media.dewiku.com/thumbs/2018/07/27/62526-lisa-balckpink/350x230-img-62526-lisa-balckpink.jpg";//ใส่รูป preview ของ video
-        $arrayPostData['messages'][2]['type'] = "uri";
-        $arrayPostData['messages'][2]['label'] = "don't know what to do";
-        $arrayPostData['messages'][2]['uri'] = "https://www.youtube.com/watch?v=ejIxLu8yCJI";
+        $arrayPostData['messages'][2]['type'] = "sticker";
+        $arrayPostData['messages'][2]['packageId'] = "11537";
+        $arrayPostData['messages'][2]['stickerId'] = "52002757";
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Sticker"
