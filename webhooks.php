@@ -50,4 +50,4 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "https://lilyforlisa.herokuapp.com/profile.php?id=$text";
+echo $text;
