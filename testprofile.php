@@ -10,12 +10,7 @@ $arrayJson = json_decode($content, true);
 
 $id = $arrayJson['events'][0]['source']['userId'];
 
-if($id != null){
-   echo "ไอดีเข้าจ้าาาาา";
-}
-else{
-   echo "ไอดีไม่เข้าาาาาา ไปแก้ใหม่!!! ";
-}
+echo $id;
 
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
