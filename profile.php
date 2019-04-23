@@ -8,10 +8,10 @@ $channelSecret = '7410da12768dbb3db2632dd64ed33a12';
 $content = file_get_contents('php://input');
    $arrayJson = json_decode($content, true);
 
-//$id = $arrayJson['events'][0]['source']['userId'];
+$id = $arrayJson['events'][0]['source']['userId'];
 //$id = 'U633040010603551b111b2e3900ff1135';
 
-$id = $_GET["id"];
+//$id = $_GET["id"];
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
