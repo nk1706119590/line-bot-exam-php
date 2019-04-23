@@ -18,7 +18,7 @@ $id = $arrayJson['events'][0]['source']['userId'];
     if($message == "สวัสดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา Uer ID ของคุณคือ ".$id;
+        $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา User ID ของคุณคือ ".$id;
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Sticker"
