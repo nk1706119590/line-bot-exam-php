@@ -15,10 +15,10 @@
 $id = $arrayJson['events'][0]['source']['userId'];
 
 #ตัวอย่าง Message Type "Text"
-    if($message == "สวัสดี"){
+    if($message == "โปรไฟล์"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา สามารถดูรายละเอียดโปรไฟล์ของคุณได้ที่ >> https://lilyforlisa.herokuapp.com/profile.php?id=".$id;
+        $arrayPostData['messages'][0]['text'] = "สามารถดูรายละเอียดโปรไฟล์ของคุณได้ที่ >> https://lilyforlisa.herokuapp.com/profile.php?id=".$id;
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Sticker"
