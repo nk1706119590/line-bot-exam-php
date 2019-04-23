@@ -15,9 +15,35 @@ $message = $arrayJson['events'][0]['message']['text'];
 $id = $arrayJson['events'][0]['source']['userId'];
 
  if($message == "โปรไฟล์"){
+  
+  $replyData = new TemplateMessageBuilder('Carousel',
+        new CarouselTemplateBuilder(
+            array(
+                new CarouselColumnTemplateBuilder(
+                    'Title Carousel',
+                    'Description Carousel',
+                    'https://www.mywebsite.com/imgsrc/photos/f/sampleimage/700',
+                    $actionBuilder
+                ),
+                new CarouselColumnTemplateBuilder(
+                    'Title Carousel',
+                    'Description Carousel',
+                    'https://www.mywebsite.com/imgsrc/photos/f/sampleimage/700',
+                    $actionBuilder
+                ),
+                new CarouselColumnTemplateBuilder(
+                    'Title Carousel',
+                    'Description Carousel',
+                    'https://www.mywebsite.com/imgsrc/photos/f/sampleimage/700',
+                    $actionBuilder
+                ),                                          
+            )
+        )
+    );
         $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("https://lilyforlisa.herokuapp.com/profile.php?id=".$id);
         $response1 = $bot->pushMessage($id, $textMessageBuilder);
  }
+
 
 /*if($id != ""){
    echo "ไอดีเข้าจ้าาาาา";
