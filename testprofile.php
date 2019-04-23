@@ -20,8 +20,6 @@ $id = $arrayJson['events'][0]['source']['userId'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา User ID ของคุณคือ ".$id;
         replyMsg($arrayHeader,$arrayPostData);
-        
-        echo "อิอิ ".$id;
     }
     #ตัวอย่าง Message Type "Sticker"
     else if($message == "ฝันดี"){
@@ -73,6 +71,8 @@ function replyMsg($arrayHeader,$arrayPostData){
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $result = curl_exec($ch);
         curl_close ($ch);
+    
+    echo "อิอิ ".$id;
     }
    exit;
 
