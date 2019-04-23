@@ -26,18 +26,11 @@ if (!is_null($events['events'])) {
 
 
 			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => "User ID: ".$text
-			];
 			
-			$response = $bot->getProfile($id);
+			
+			$response = $bot->getProfile($text);
 			if ($response->isSucceeded()) {
 			    $profile = $response->getJSONDecodedBody();
-				$messages = [
-				'type' => 'text',
-				'text' => "User ID: ".$profile['displayName']
-			];
 			    echo "UserID : " .$profile['userId']."<br>";
 			    echo "Name : " .$profile['displayName']."<br>";
 			    echo "Pic : " .$profile['pictureUrl']."<br>";
