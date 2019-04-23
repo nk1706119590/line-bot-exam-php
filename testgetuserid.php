@@ -7,6 +7,10 @@ $channelSecret = '7410da12768dbb3db2632dd64ed33a12';
 $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
 
+   $arrayHeader = array();
+    $arrayHeader[] = "Content-Type: application/json";
+    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
+
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
