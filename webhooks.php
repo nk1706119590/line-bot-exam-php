@@ -10,6 +10,7 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 
+
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -32,6 +33,16 @@ if (!is_null($events['events'])) {
 				'type' => 'text',
 				'text' => "User ID: ".$text
 			];
+			
+			
+$response = $bot->getProfile($text);
+if ($response->isSucceeded()) {
+    $profile = $response->getJSONDecodedBody();
+    echo "UserID : " .$profile['userId']."<br>";
+    echo "Name : " .$profile['displayName']."<br>";
+    echo "Pic : " .$profile['pictureUrl']."<br>";
+    echo "Status : " .$profile['statusMessage'];
+}
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
