@@ -15,24 +15,13 @@ $message = $arrayJson['events'][0]['message']['text'];
 
 $id = $arrayJson['events'][0]['source']['userId'];
 
- /*if($message == "โปรไฟล์"){
+ if($message == "โปรไฟล์"){
 
         $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("https://lilyforlisa.herokuapp.com/profile.php?id=".$id);
         $response1 = $bot->pushMessage($id, $textMessageBuilder);
- }*/
-
-
-    $response = $bot->getProfile($id);
-      if ($response->isSucceeded()) {
-          $profile = $response->getJSONDecodedBody();
-        if($message == "สวัสดี"){
-         echo "id" : .$id;
-          /*echo "UserID : " .$profile['userId']."<br>";
-          echo "Name : " .$profile['displayName']."<br>";
-          echo "Pic : " .$profile['pictureUrl']."<br>";
-          echo "Status : " .$profile['statusMessage'];*/
-        }
  }
+
+
 
 
 
