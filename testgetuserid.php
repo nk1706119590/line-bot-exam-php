@@ -26,8 +26,6 @@ $id = $arrayJson['events'][0]['source']['userId'];
     $response = $bot->getProfile($id);
       if ($response->isSucceeded()) {
           $profile = $response->getJSONDecodedBody();
-         $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("".$profile['displayName']);
-    $response1 = $bot->pushMessage($id, $textMessageBuilder);
           echo "UserID : " .$profile['userId']."<br>";
           echo "Name : " .$profile['displayName']."<br>";
           echo "Pic : " .$profile['pictureUrl']."<br>";
