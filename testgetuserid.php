@@ -26,10 +26,11 @@ $id = $arrayJson['events'][0]['source']['userId'];
       if ($response->isSucceeded()) {
           $profile = $response->getJSONDecodedBody();
         if($message == "สวัสดี"){
-          echo "UserID : " .$profile['userId']."<br>";
+         echo "id" : .$id;
+          /*echo "UserID : " .$profile['userId']."<br>";
           echo "Name : " .$profile['displayName']."<br>";
           echo "Pic : " .$profile['pictureUrl']."<br>";
-          echo "Status : " .$profile['statusMessage'];
+          echo "Status : " .$profile['statusMessage'];*/
         }
  }
 
