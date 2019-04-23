@@ -21,8 +21,7 @@ if (!is_null($events['events'])) {
 			$text = $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			
-			$txtname = $
+
 
 			// Build message to reply back
 			$messages = [
