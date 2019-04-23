@@ -20,7 +20,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			$text = $event['source']['type'];
+			$text = $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			// Build message to reply back
@@ -45,6 +45,8 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 			echo $result . "\r\n";
+			
+			$post = 'https://lilyforlisa.herokuapp.com/webhooks.php?id=$text';
 		}
 	}
 }
