@@ -14,24 +14,11 @@
 
 $id = $arrayJson['events'][0]['source']['userId'];
 
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-
-$response = $bot->getProfile($id);
-if ($response->isSucceeded()) {
-    $profile = $response->getJSONDecodedBody();
-    echo "UserID : " .$profile['userId']."<br>";
-    echo "Name : " .$profile['displayName']."<br>";
-    echo "Pic : " .$profile['pictureUrl']."<br>";
-    echo "Status : " .$profile['statusMessage'];
-      
-}
-
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา".$id;
+        $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา Uer ID ของคุณคือ ".$id;
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Sticker"
