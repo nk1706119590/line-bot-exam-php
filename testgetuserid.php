@@ -20,6 +20,13 @@ $id = $arrayJson['events'][0]['source']['userId'];
         $response1 = $bot->pushMessage($id, $textMessageBuilder);
  }
 
+ if($message == "สวัสดี"){
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $id;
+        replyMsg($arrayHeader,$arrayPostData);
+ }
+
 
 /*if($id != ""){
    echo "ไอดีเข้าจ้าาาาา";
