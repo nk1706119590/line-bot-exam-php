@@ -10,7 +10,15 @@ $arrayJson = json_decode($content, true);
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
+$message = $arrayJson['events'][0]['message']['text'];
+
 $id = $arrayJson['events'][0]['source']['userId'];
+
+ if($message == "โปรไฟล์"){
+        $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("https://lilyforlisa.herokuapp.com/profile.php?id=".$id);
+        $response1 = $bot->pushMessage($id, $textMessageBuilder);
+ }
+
 /*if($id != ""){
    echo "ไอดีเข้าจ้าาาาา";
 }
@@ -28,8 +36,7 @@ if ($response->isSucceeded()) {
     echo "Status : " .$profile['statusMessage'];
       
 }*/
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("https://lilyforlisa.herokuapp.com/profile.php?id=".$id);
-$response1 = $bot->pushMessage($id, $textMessageBuilder);
+
 
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 //echo $textMessageBuilder;
