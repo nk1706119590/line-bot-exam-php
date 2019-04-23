@@ -4,10 +4,6 @@ require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 $access_token = 'JOALJaFzXSS1/Iw0lRElqFUMiBHUF4LhFisSOpo9WpfG4Ju5l+o+o5yTWeYVIqOhwPafmf63J283XV1uMahQlwgdfCxzlKipJygVt7h4z9Fbt0mq+eQivXcy4jj4oyvvH8a6cp39m8SO/3I9OyLmVgdB04t89/1O/w1cDnyilFU=';
-$channelSecret = '7410da12768dbb3db2632dd64ed33a12';
-
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 
 
@@ -34,16 +30,6 @@ if (!is_null($events['events'])) {
 				'text' => "User ID: ".$text
 			];
 			
-			
-$response = $bot->getProfile($text);
-if ($response->isSucceeded()) {
-    $profile = $response->getJSONDecodedBody();
-    echo "UserID : " .$profile['userId']."<br>";
-    echo "Name : " .$profile['displayName']."<br>";
-    echo "Pic : " .$profile['pictureUrl']."<br>";
-    echo "Status : " .$profile['statusMessage'];
-}
-
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
