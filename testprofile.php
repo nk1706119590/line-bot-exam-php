@@ -11,8 +11,17 @@
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
+    $id = $arrayJson['events'][0]['source']['userId'];
 
-$id = $arrayJson['events'][0]['source']['userId'];
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($accessToken);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+$response = $bot->getProfile($id);
+if ($response->isSucceeded()) {
+    $profile = $response->getJSONDecodedBody();
+    echo $profile['displayName'];
+    echo $profile['pictureUrl'];
+    echo $profile['statusMessage'];
+}
 
 #ตัวอย่าง Message Type "Text"
     if($message == "โปรไฟล์"){
