@@ -117,11 +117,15 @@ if(!is_null($events)){
                     break;
                 case "ประชาสัมพันธ์":
                     $actionBuilder = array(
-                        new ConfirmTemplateBuilder(
+                        new PostbackTemplateActionBuilder(
                             'Y',// 
-                            'N' // 
+                            'Yes' // 
                         ),
-                    );    
+                    ); 
+                    $button = new ConfirmTemplateBuilder(
+                          'confirm',
+                          $actionBuilder
+                      );
                     break;
                 default:
                     $textReplyMessage = " คุณไม่ได้พิมพ์ ค่า ตามที่กำหนด";
