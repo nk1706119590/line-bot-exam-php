@@ -73,20 +73,20 @@ if(!is_null($events)){
                             'เข้าสู่เว็บไซต์', // ข้อความแสดงในปุ่ม
                             'https://manager.line.biz/account/@578priml/richmenu'
                         ), 
-                        new PostbackTemplateActionBuilder(
+                        /*new PostbackTemplateActionBuilder(
                             'Postback', // ข้อความแสดงในปุ่ม
                             http_build_query(array(
                                 'action'=>'buy',
                                 'item'=>100
                             )), // ข้อมูลที่จะส่งไปใน webhook ผ่าน postback event
                             'Postback Text'  // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-                        ),      
+                        ),  */    
                     );
                     $imageUrl = 'https://3.bp.blogspot.com/-AEczW23WrA8/V7NMIIdxUwI/AAAAAAAAAHQ/3312FluUinUjlx7xkjl2Mjeki9H0FQxDwCLcB/s1600/contact.jpg';
                     $replyData = new TemplateMessageBuilder('Button Template',
                         new ButtonTemplateBuilder(
                                 'ติดต่อเรา', // กำหนดหัวเรื่อง
-                                'Please select', // กำหนดรายละเอียด
+                                ' ', // กำหนดรายละเอียด
                                 $imageUrl, // กำหนด url รุปภาพ
                                 $actionBuilder  // กำหนด action object
                         )
