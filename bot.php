@@ -121,7 +121,27 @@ if(!is_null($events)){
                                 )
                         )
                     );
-                    break;                                                                                                                          
+                    break;
+                case "m":
+                    $textReplyMessage = "Bot ตอบกลับคุณเป็นข้อความ";
+                    $textMessage = new TextMessageBuilder($textReplyMessage);
+
+                    $picFullSize = 'https://www.mywebsite.com/imgsrc/photos/f/simpleflower';
+                    $picThumbnail = 'https://www.mywebsite.com/imgsrc/photos/f/simpleflower/240';
+                    $imageMessage = new ImageMessageBuilder($picFullSize,$picThumbnail);
+
+                    $placeName = "ที่ตั้งร้าน";
+                    $placeAddress = "แขวง พลับพลา เขต วังทองหลาง กรุงเทพมหานคร ประเทศไทย";
+                    $latitude = 13.780401863217657;
+                    $longitude = 100.61141967773438;
+                    $locationMessage = new LocationMessageBuilder($placeName, $placeAddress, $latitude ,$longitude);        
+
+                    $multiMessage =     new MultiMessageBuilder;
+                    $multiMessage->add($textMessage);
+                    $multiMessage->add($imageMessage);
+                    $multiMessage->add($locationMessage);
+                    $replyData = $multiMessage;                                     
+                    break;
                 default:
                     $textReplyMessage = " คุณไม่ได้พิมพ์ ค่า ตามที่กำหนด";
                     $replyData = new TextMessageBuilder($textReplyMessage);         
