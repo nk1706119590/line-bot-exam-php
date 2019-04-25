@@ -66,11 +66,11 @@ if(!is_null($events)){
                     $columns = array();
                     $img_url = "https://www.wallpaperup.com/uploads/wallpapers/2014/01/07/218890/d1e564fc5ab85b3ff9404c84d8268f13-700.jpg";
                     for($i=0;$i<5;$i++) {
-                      $actions = array(
+                      $actionBuilder = array(
                         new PostbackTemplateActionBuilder('Add to Card','action=carousel&button='.$i),
                         new UriTemplateActionBuilder('View','http://www.google.com')
                       );
-                      $column = new CarouselColumnTemplateBuilder('Title', 'description', $img_url , $actions);
+                      $column = new CarouselColumnTemplateBuilder('Title', 'description', $img_url , $actionBuilder);
                       $columns[] = $column;
                     }
                 
