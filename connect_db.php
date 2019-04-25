@@ -1,12 +1,12 @@
 <?php
 
-$Setup_Server = ''; //ex.123.234.456.789
+$Setup_Server = '127.0.0.1:4040'; //ex.123.234.456.789
 
-$Setup_User = ''; // name userdb
+$Setup_User = 'nan'; // name userdb
 
-$Setup_Pwd = ''; // pass
+$Setup_Pwd = '1234'; // pass
 
-$Setup_Database = ''; //name tbl db
+$Setup_Database = 'testtest'; //name tbl db
 
 mysql_connect($Setup_Server,$Setup_User,$Setup_Pwd);
 
