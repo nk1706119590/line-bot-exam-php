@@ -129,7 +129,7 @@ if(!is_null($events)){
                     );              
                     break;
                 case "ประชาสัมพันธ์":
-                    $textReplyMessage = "ขณะนี้เป็นระบบตอบกลับอัตโนมัติ ช่วงเวลาทำการของ ถาม-ตอบ กับแอดมิน คือ 10.00 น. - 17.00 น. เท่านั้น";
+                    $textReplyMessage = "ไม่มีข่าวอัพเดทค่ะ";
                     $replyData = new TextMessageBuilder($textReplyMessage);
                     break;
                 default:
