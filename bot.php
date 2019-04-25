@@ -63,6 +63,7 @@ if(!is_null($events)){
                     $replyData = new TextMessageBuilder($textReplyMessage);
                     break;
                 case "แจ้งเหตุเสีย":
+                 for($i=0;$i<5;$i++) {
                     $actionBuilder = array(
                         new PostbackTemplateActionBuilder(
                             'Add to Card',// ข้อความแสดงในปุ่ม
@@ -73,6 +74,9 @@ if(!is_null($events)){
                             'https://manager.line.biz/account/@578priml/richmenu'
                         ), 
                     );
+                   //$column = new CarouselColumnTemplateBuilder('Title', 'description', $img_url , $actionBuilder);
+                    //  $columns[] = $column;
+                    }
                 
                     $img_url = "https://www.wallpaperup.com/uploads/wallpapers/2014/01/07/218890/d1e564fc5ab85b3ff9404c84d8268f13-700.jpg";
                     replyData = new TemplateMessageBuilder('Button Template',
