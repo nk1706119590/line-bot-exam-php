@@ -63,7 +63,17 @@ if(!is_null($events)){
                     $replyData = new TextMessageBuilder($textReplyMessage);
                     break;
                 case "แจ้งเหตุเสีย":
-                    $columns = array();
+                    $actionBuilder = array(
+                        new MessageTemplateActionBuilder(
+                            'ถาม-ตอบ กับแอดมิน',// ข้อความแสดงในปุ่ม
+                            'ถาม-ตอบ กับแอดมิน' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+                        ),
+                        new UriTemplateActionBuilder(
+                            'เข้าสู่เว็บไซต์', // ข้อความแสดงในปุ่ม
+                            'https://manager.line.biz/account/@578priml/richmenu'
+                        ), 
+                    );
+                    /*$columns = array();
                     $img_url = "https://www.wallpaperup.com/uploads/wallpapers/2014/01/07/218890/d1e564fc5ab85b3ff9404c84d8268f13-700.jpg";
                     for($i=0;$i<5;$i++) {
                       $actionBuilder = array(
@@ -75,7 +85,7 @@ if(!is_null($events)){
                     }
                 
                     $carousel = new CarouselTemplateBuilder($columns);
-                    $outputText = new TemplateMessageBuilder('Carousel Demo', $carousel);
+                    $outputText = new TemplateMessageBuilder('Carousel Demo', $carousel);*/
                     break;
                 case "ติดต่อเรา":
                     // กำหนด action 2 ปุ่ม 2 ประเภท
