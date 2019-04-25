@@ -62,11 +62,42 @@ if(!is_null($events)){
                     $textReplyMessage = "ขณะนี้เป็นระบบตอบกลับอัตโนมัติ ช่วงเวลาทำการของ ถาม-ตอบ กับแอดมิน คือ 10.00 น. - 17.00 น. เท่านั้น";
                     $replyData = new TextMessageBuilder($textReplyMessage);
                     break;
-                 case "ประชาสัมพันธ์":
-                    $textReplyMessage = "ไม่มีข่าวอัพเดท";
-                    $replyData = new TextMessageBuilder($textReplyMessage);
-                braek;
+                case "แจ้งเหตุเสีย":
+                    $actionBuilder = array(
+                        new MessageTemplateActionBuilder(
+                            'Add to Card',// ข้อความแสดงในปุ่ม
+                            '555' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+                        ),
+                        new UriTemplateActionBuilder(
+                            'เข้าสู่เว็บไซต์', // ข้อความแสดงในปุ่ม
+                            'https://manager.line.biz/account/@578priml/richmenu'
+                        ), 
+                    );
                 
+                $imageUrl = 'https://3.bp.blogspot.com/-AEczW23WrA8/V7NMIIdxUwI/AAAAAAAAAHQ/3312FluUinUjlx7xkjl2Mjeki9H0FQxDwCLcB/s1600/contact.jpg';
+                    $replyData = new TemplateMessageBuilder('Button Template',
+                        new ButtonTemplateBuilder(
+                                'ติดต่อเรา', // กำหนดหัวเรื่อง
+                                ' ', // กำหนดรายละเอียด
+                                $imageUrl, // กำหนด url รุปภาพ
+                                $actionBuilder  // กำหนด action object
+                        )
+                    );    
+                         
+                    /*$columns = array();
+                    $img_url = "https://www.wallpaperup.com/uploads/wallpapers/2014/01/07/218890/d1e564fc5ab85b3ff9404c84d8268f13-700.jpg";
+                    for($i=0;$i<5;$i++) {
+                      $actionBuilder = array(
+                        new PostbackTemplateActionBuilder('Add to Card','action=carousel&button='.$i),
+                        new UriTemplateActionBuilder('View','http://www.google.com')
+                      );
+                      $column = new CarouselColumnTemplateBuilder('Title', 'description', $img_url , $actionBuilder);
+                      $columns[] = $column;
+                    }
+                
+                    $carousel = new CarouselTemplateBuilder($columns);
+                    $outputText = new TemplateMessageBuilder('Carousel Demo', $carousel);*/
+                    break;
                 case "ติดต่อเรา":
                     // กำหนด action 2 ปุ่ม 2 ประเภท
                     $actionBuilder = array(
@@ -96,7 +127,11 @@ if(!is_null($events)){
                                 $actionBuilder  // กำหนด action object
                         )
                     );              
-                    break;  
+                    break;
+                case "ประชาสัมพันธ์":
+                    $textReplyMessage = "ขณะนี้เป็นระบบตอบกลับอัตโนมัติ ช่วงเวลาทำการของ ถาม-ตอบ กับแอดมิน คือ 10.00 น. - 17.00 น. เท่านั้น";
+                    $replyData = new TextMessageBuilder($textReplyMessage);
+                    break;
                 default:
                     $textReplyMessage = " คุณไม่ได้พิมพ์ ค่า ตามที่กำหนด";
                     $replyData = new TextMessageBuilder($textReplyMessage);         
