@@ -129,6 +129,12 @@ if(!is_null($events)){
                         )
                     );
                     break;   
+                default:
+                    $textReplyMessage = " คุณไม่ได้พิมพ์ ค่า ตามที่กำหนด";
+                    $replyData = new TextMessageBuilder($textReplyMessage);         
+                    break;                                      
+            }
+            break;
         default:
             $textReplyMessage = json_encode($events);
             $replyData = new TextMessageBuilder($textReplyMessage);         
