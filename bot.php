@@ -63,16 +63,6 @@ if(!is_null($events)){
                     $replyData = new TextMessageBuilder($textReplyMessage);
                     break;
                 case "แจ้งเหตุเสีย":
-                    $columns = array();
-                    $img_url = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
-                    for($i=0;$i<5;$i++) {
-                      $actions = array(
-                        new PostbackTemplateActionBuilder("Add to Card","action=carousel&button=".$i),
-                        new UriTemplateActionBuilder("View","http://www.google.com")
-                      );
-                      $column = new CarouselColumnTemplateBuilder("Title", "description", $img_url , $actions);
-                      $columns[] = $column;
-                    }
                     $carousel = new CarouselTemplateBuilder($columns);
                     $outputText = new TemplateMessageBuilder("Carousel Demo", $carousel);
                     break;	
