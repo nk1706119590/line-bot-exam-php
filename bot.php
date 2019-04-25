@@ -58,12 +58,16 @@ if(!is_null($events)){
     switch ($typeMessage){
         case 'text':
             switch ($userMessage) {
+                case "ถาม-ตอบ กับ แอดมิน":
+                    $textReplyMessage = "ขณะนี้เป็นระบบตอบกลับอัตโนมัติ ช่วงเวลาถามตอบกับแอดมินคือ 10.00 น. - 17.00 น. เท่านั้น";
+                    $replyData = new TextMessageBuilder($textReplyMessage);
+                    break;
                 case "ติดต่อเรา":
                     // กำหนด action 4 ปุ่ม 4 ประเภท
                     $actionBuilder = array(
                         new MessageTemplateActionBuilder(
-                            'ถาม-ตอบ กับแอดมิน',// ข้อความแสดงในปุ่ม
-                            'ขณะนี้เป็นระบบตอบกลับอัตโนมัติ ช่วงเวลาถามตอบกับแอดมินคือ 10.00 น. - 17.00 น. เท่านั้น' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+                            'ถาม-ตอบ กับ แอดมิน',// ข้อความแสดงในปุ่ม
+                            'ถาม-ตอบ กับ แอดมิน' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
                         ),
                         new UriTemplateActionBuilder(
                             'เข้าสู่เว็บไซต์', // ข้อความแสดงในปุ่ม
