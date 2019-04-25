@@ -95,27 +95,6 @@ if(!is_null($events)){
                     $packageID = 2;
                     $replyData = new StickerMessageBuilder($packageID,$stickerID);
                     break;    
-                case "m":
-                    $arr_replyData = array();
-                    $textReplyMessage = "Bot ตอบกลับคุณเป็นข้อความ";
-                    $arr_replyData[] = new TextMessageBuilder($textReplyMessage);
-
-                    $picFullSize = 'https://www.mywebsite.com/imgsrc/photos/f/simpleflower';
-                    $picThumbnail = 'https://www.mywebsite.com/imgsrc/photos/f/simpleflower/240';
-                    $arr_replyData[] = new ImageMessageBuilder($picFullSize,$picThumbnail);
-
-                    $placeName = "ที่ตั้งร้าน";
-                    $placeAddress = "แขวง พลับพลา เขต วังทองหลาง กรุงเทพมหานคร ประเทศไทย";
-                    $latitude = 13.780401863217657;
-                    $longitude = 100.61141967773438;
-                    $arr_replyData[] = new LocationMessageBuilder($placeName, $placeAddress, $latitude ,$longitude);        
-
-                    $multiMessage =     new MultiMessageBuilder;
-                    foreach($arr_replyData as $arr_Reply){
-                            $multiMessage->add($arr_Reply);
-                    }
-                    $replyData = $multiMessage;                                     
-                    break;      
                 case "im":
                     $imageMapUrl = 'https://www.mywebsite.com/imgsrc/photos/w/sampleimagemap';
                     $replyData = new ImagemapMessageBuilder(
