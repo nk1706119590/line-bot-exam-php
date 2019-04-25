@@ -92,7 +92,7 @@ if(!is_null($events)){
                     $imageUrl = 'https://www.mywebsite.com/imgsrc/photos/w/simpleflower';
                     $replyData = new TemplateMessageBuilder('Button Template',
                         new ButtonTemplateBuilder(
-                                'button template builder', // กำหนดหัวเรื่อง
+                                'ติดต่อเรา', // กำหนดหัวเรื่อง
                                 'Please select', // กำหนดรายละเอียด
                                 $imageUrl, // กำหนด url รุปภาพ
                                 $actionBuilder  // กำหนด action object
