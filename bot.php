@@ -88,6 +88,11 @@ if(!is_null($events)){
                             'เข้าสู่เว็บไซต์', // ข้อความแสดงในปุ่ม
                             'https://manager.line.biz/account/@578priml/richmenu'
                         ), 
+                      new CarouselColumnTemplateBuilder(
+                        'Title', 
+                        'description', 
+                        $img_url , 
+                        $actionBuilder),
                         /*new PostbackTemplateActionBuilder(
                             'Postback', // ข้อความแสดงในปุ่ม
                             http_build_query(array(
