@@ -235,9 +235,9 @@ if(!is_null($events)){
     ]
   ];
 if ( sizeof($events['events']) > 0 ) {
-    foreach ($events['events'] as $event) {
+    foreach ($events['events'] as $event1) {
         $reply_message = '';
-        $reply_token = $event['replyToken'];
+        $reply_token = $event1['replyToken'];
         $data = [
             'replyToken' => $reply_token,
             'messages' => [$jsonFlex]
