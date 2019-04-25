@@ -73,19 +73,17 @@ if(!is_null($events)){
                             'https://manager.line.biz/account/@578priml/richmenu'
                         ), 
                     );
-                   //$column = new CarouselColumnTemplateBuilder('Title', 'description', $img_url , $actionBuilder);
-                    //  $columns[] = $column;
-                    }
                 
-                    $img_url = "https://www.wallpaperup.com/uploads/wallpapers/2014/01/07/218890/d1e564fc5ab85b3ff9404c84d8268f13-700.jpg";
-                    replyData = new TemplateMessageBuilder('Button Template',
-                        new CarouselTemplateBuilder(
+                $imageUrl = 'https://3.bp.blogspot.com/-AEczW23WrA8/V7NMIIdxUwI/AAAAAAAAAHQ/3312FluUinUjlx7xkjl2Mjeki9H0FQxDwCLcB/s1600/contact.jpg';
+                    $replyData = new TemplateMessageBuilder('Button Template',
+                        new ButtonTemplateBuilder(
                                 'ติดต่อเรา', // กำหนดหัวเรื่อง
                                 ' ', // กำหนดรายละเอียด
                                 $imageUrl, // กำหนด url รุปภาพ
                                 $actionBuilder  // กำหนด action object
                         )
-                    );              
+                    );    
+                         
                     /*$columns = array();
                     $img_url = "https://www.wallpaperup.com/uploads/wallpapers/2014/01/07/218890/d1e564fc5ab85b3ff9404c84d8268f13-700.jpg";
                     for($i=0;$i<5;$i++) {
