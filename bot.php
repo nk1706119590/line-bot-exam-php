@@ -1,8 +1,8 @@
 <?php
   // กรณีต้องการตรวจสอบการแจ้ง error ให้เปิด 3 บรรทัดล่างนี้ให้ทำงาน กรณีไม่ ให้ comment ปิดไป
-  ini_set('display_errors', 1)."<br>";
-  ini_set('display_startup_errors', 1)."<br>";
-  error_reporting(E_ALL)."<br>";
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
   // include composer autoload
   require "vendor/autoload.php";
   // การตั้งเกี่ยวกับ bot
@@ -62,6 +62,10 @@ if(!is_null($events)){
                     $textReplyMessage = "ขณะนี้เป็นระบบตอบกลับอัตโนมัติ ช่วงเวลาทำการของ ถาม-ตอบ กับแอดมิน คือ 10.00 น. - 17.00 น. เท่านั้น";
                     $replyData = new TextMessageBuilder($textReplyMessage);
                     break;
+                 case "ประชาสัมพันธ์":
+                    $textReplyMessage = "ไม่มีข่าวอัพเดท";
+                    $replyData = new TextMessageBuilder($textReplyMessage);
+                braek;
                 case "แจ้งเหตุเสีย":
                     $actionBuilder = array(
                         new MessageTemplateActionBuilder(
@@ -98,10 +102,6 @@ if(!is_null($events)){
                     $carousel = new CarouselTemplateBuilder($columns);
                     $outputText = new TemplateMessageBuilder('Carousel Demo', $carousel);*/
                     break;
-                case "ประชาสัมพันธ์":
-                    $textReplyMessage = "ไม่มีข่าวอัพเดท";
-                    $replyData = new TextMessageBuilder($textReplyMessage);
-                braek;
                 case "ติดต่อเรา":
                     // กำหนด action 2 ปุ่ม 2 ประเภท
                     $actionBuilder = array(
