@@ -116,8 +116,12 @@ if(!is_null($events)){
                     );              
                     break;
                 case "ประชาสัมพันธ์":
-                    $textReplyMessage = "ไม่มีข่าวอัพเดทค่ะ";
-                    $replyData = new TextMessageBuilder($textReplyMessage);     
+                    $actionBuilder = array(
+                        new ConfirmTemplateBuilder(
+                            'Y',// 
+                            'N' // 
+                        ),
+                    );    
                     break;
                 default:
                     $textReplyMessage = " คุณไม่ได้พิมพ์ ค่า ตามที่กำหนด";
