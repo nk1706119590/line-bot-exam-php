@@ -9,11 +9,13 @@
 
   // การตั้งเกี่ยวกับ bot
   require 'bot_settings.php';
+$access_token = 'JOALJaFzXSS1/Iw0lRElqFUMiBHUF4LhFisSOpo9WpfG4Ju5l+o+o5yTWeYVIqOhwPafmf63J283XV1uMahQlwgdfCxzlKipJygVt7h4z9Fbt0mq+eQivXcy4jj4oyvvH8a6cp39m8SO/3I9OyLmVgdB04t89/1O/w1cDnyilFU=';
+$channelSecret = '7410da12768dbb3db2632dd64ed33a12';
 
 
   // เชื่อมต่อกับ LINE Messaging API
-  $httpClient = new CurlHTTPClient(LINE_MESSAGE_ACCESS_TOKEN);
-  $bot = new LINEBot($httpClient, array('channelSecret' => LINE_MESSAGE_CHANNEL_SECRET));
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
   // คำสั่งรอรับการส่งค่ามาของ LINE Messaging API
   $content = file_get_contents('php://input');
