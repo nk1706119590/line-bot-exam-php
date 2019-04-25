@@ -63,26 +63,16 @@ if(!is_null($events)){
                     $replyData = new TextMessageBuilder($textReplyMessage);
                     break;
                 case "แจ้งเหตุเสีย":
-                    $carousel = new CarouselTemplateBuilder($columns);
-                    $outputText = new TemplateMessageBuilder("Carousel Demo", $carousel);
-                    break;	
-                        case "image" :
-                          $img_url = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
-                          $outputText = new ImageMessageBuilder($img_url, $img_url);
-                          break;	
-                        case "confirm" :
-                          $actions = array (
-                            new PostbackTemplateActionBuilder("yes", "ans=y"),
-                            new PostbackTemplateActionBuilder("no", "ans=N")
-                          );
-                          $button = new ConfirmTemplateBuilder("problem", $actions);
-                          $outputText = new TemplateMessageBuilder("this message to use the phone to look to the Oh", $button);
-                          break;
-                      default :
-                        $outputText = new TextMessageBuilder("demo command: text, location, button, confirm to test message template");
+                    $actionBuilder = array(
+                      new CarouselColumnTemplateBuilder(
+                        'test',
+                        'disss',
+                        'https://www.wallpaperup.com/uploads/wallpapers/2014/01/07/218890/d1e564fc5ab85b3ff9404c84d8268f13-700.jpg'
+                      ),
+                    );
                     break;
                 case "ติดต่อเรา":
-                    // กำหนด action 4 ปุ่ม 4 ประเภท
+                    // กำหนด action 2 ปุ่ม 2 ประเภท
                     $actionBuilder = array(
                         new MessageTemplateActionBuilder(
                             'ถาม-ตอบ กับแอดมิน',// ข้อความแสดงในปุ่ม
