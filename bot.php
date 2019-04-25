@@ -94,7 +94,7 @@ if(!is_null($events)){
                     $stickerID = 22;
                     $packageID = 2;
                     $replyData = new StickerMessageBuilder($packageID,$stickerID);
-                    break;    
+                    break;      
                 case "im":
                     $imageMapUrl = 'https://www.mywebsite.com/imgsrc/photos/w/sampleimagemap';
                     $replyData = new ImagemapMessageBuilder(
@@ -128,13 +128,13 @@ if(!is_null($events)){
                                 )
                         )
                     );
-                    break;   
-                default:
-                    $textReplyMessage = " คุณไม่ได้พิมพ์ ค่า ตามที่กำหนด";
-                    $replyData = new TextMessageBuilder($textReplyMessage);         
-                    break;                                      
-            }
-            break;
+                    break;                                                                                                                          
+                default:
+                    $textReplyMessage = " คุณไม่ได้พิมพ์ ค่า ตามที่กำหนด";
+                    $replyData = new TextMessageBuilder($textReplyMessage);         
+                    break;                                      
+            }
+            break;
         default:
             $textReplyMessage = json_encode($events);
             $replyData = new TextMessageBuilder($textReplyMessage);         
@@ -143,4 +143,5 @@ if(!is_null($events)){
 }
 //l ส่วนของคำสั่งตอบกลับข้อความ
 $response = $bot->replyMessage($replyToken,$replyData);
+
 ?>
