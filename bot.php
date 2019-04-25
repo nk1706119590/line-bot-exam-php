@@ -63,11 +63,10 @@ if(!is_null($events)){
                     $replyData = new TextMessageBuilder($textReplyMessage);
                     break;
                 case "แจ้งเหตุเสีย":
-                 for($i=0;$i<5;$i++) {
                     $actionBuilder = array(
                         new PostbackTemplateActionBuilder(
                             'Add to Card',// ข้อความแสดงในปุ่ม
-                            'action=carousel&button='.$i // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+                            '555' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
                         ),
                         new UriTemplateActionBuilder(
                             'เข้าสู่เว็บไซต์', // ข้อความแสดงในปุ่ม
