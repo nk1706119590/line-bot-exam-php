@@ -64,7 +64,7 @@ if(!is_null($events)){
                     break;
                 case "แจ้งเหตุเสีย":
                     $actionBuilder = array(
-                        new PostbackTemplateActionBuilder(
+                        new MessageTemplateActionBuilder(
                             'Add to Card',// ข้อความแสดงในปุ่ม
                             '555' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
                         ),
