@@ -5,10 +5,10 @@
   error_reporting(E_ALL);
 
   // include composer autoload
-  require_once '../vendor/autoload.php';
+  require "vendor/autoload.php";
 
   // การตั้งเกี่ยวกับ bot
-  require_once 'bot_settings.php';
+  require 'bot_settings.php';
 
 
   // เชื่อมต่อกับ LINE Messaging API
