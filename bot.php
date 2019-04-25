@@ -67,29 +67,29 @@ if(!is_null($events)){
                     $img_url = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
                     for($i=0;$i<5;$i++) {
                       $actions = array(
-                        new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Add to Card","action=carousel&button=".$i),
-                        new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View","http://www.google.com")
+                        new PostbackTemplateActionBuilder("Add to Card","action=carousel&button=".$i),
+                        new UriTemplateActionBuilder("View","http://www.google.com")
                       );
-                      $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Title", "description", $img_url , $actions);
+                      $column = new CarouselColumnTemplateBuilder("Title", "description", $img_url , $actions);
                       $columns[] = $column;
                     }
-                    $carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
-                    $outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Carousel Demo", $carousel);
+                    $carousel = new CarouselTemplateBuilder($columns);
+                    $outputText = new TemplateMessageBuilder("Carousel Demo", $carousel);
                     break;	
                         case "image" :
                           $img_url = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
-                          $outputText = new LINE\LINEBot\MessageBuilder\ImageMessageBuilder($img_url, $img_url);
+                          $outputText = new ImageMessageBuilder($img_url, $img_url);
                           break;	
                         case "confirm" :
                           $actions = array (
-                            New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("yes", "ans=y"),
-                            New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("no", "ans=N")
+                            new PostbackTemplateActionBuilder("yes", "ans=y"),
+                            new PostbackTemplateActionBuilder("no", "ans=N")
                           );
-                          $button = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder("problem", $actions);
-                          $outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("this message to use the phone to look to the Oh", $button);
+                          $button = new ConfirmTemplateBuilder("problem", $actions);
+                          $outputText = new TemplateMessageBuilder("this message to use the phone to look to the Oh", $button);
                           break;
                       default :
-                        $outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("demo command: text, location, button, confirm to test message template");
+                        $outputText = new TextMessageBuilder("demo command: text, location, button, confirm to test message template");
                     break;
                 case "ติดต่อเรา":
                     // กำหนด action 4 ปุ่ม 4 ประเภท
