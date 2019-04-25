@@ -22,12 +22,25 @@
         $arrayPostData['messages'][1]['stickerId'] = "52002753";
         replyMsg($arrayHeader,$arrayPostData);
     }
-    #ตัวอย่าง Message Type "Sticker"
-    else if($message == "ฝันดี"){
+    #ติดต่อเรา
+    else if($message == "ติดต่อเรา"){
+        $imageMapUrl = 'https://www.mywebsite.com/imgsrc/photos/w/sampleimagemap';
+        $replyData = new ImagemapMessageBuilder(
+            $imageMapUrl, // ส่วนของการกำหนด url รูป
+            'This is Imagemap', // ส่วนของการกำหนดหัวเรื่องว่าเกี่ยวกับอะไร
+            new BaseSizeBuilder(699,1040), // กำหนดขนาดของรูป (สูง,กว้าง)
+            array(
+                new ImagemapMessageActionBuilder(
+                    'test image map',
+                    new AreaBuilder(0,0,520,699)
+                    ),
+                new ImagemapUriActionBuilder(
+                    'http://www.ninenik.com',
+                    new AreaBuilder(520,0,520,699)
+                    )
+            ));
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "sticker";
-        $arrayPostData['messages'][0]['packageId'] = "2";
-        $arrayPostData['messages'][0]['stickerId'] = "46";
+        
         replyMsg($arrayHeader,$arrayPostData);
     }
     #ตัวอย่าง Message Type "Image"
