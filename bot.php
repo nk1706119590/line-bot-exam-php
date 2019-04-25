@@ -63,13 +63,19 @@ if(!is_null($events)){
                     $replyData = new TextMessageBuilder($textReplyMessage);
                     break;
                 case "แจ้งเหตุเสีย":
-                    $actionBuilder = array(
-                      new CarouselColumnTemplateBuilder(
-                        'test',
-                        'disss',
-                        'https://www.wallpaperup.com/uploads/wallpapers/2014/01/07/218890/d1e564fc5ab85b3ff9404c84d8268f13-700.jpg'
-                      ),
-                    );
+                    $columns = array();
+                    $img_url = "https://www.wallpaperup.com/uploads/wallpapers/2014/01/07/218890/d1e564fc5ab85b3ff9404c84d8268f13-700.jpg";
+                    for($i=0;$i<5;$i++) {
+                      $actions = array(
+                        new PostbackTemplateActionBuilder("Add to Card","action=carousel&button=".$i),
+                        new UriTemplateActionBuilder("View","http://www.google.com")
+                      );
+                      $column = new CarouselColumnTemplateBuilder("Title", "description", $img_url , $actions);
+                      $columns[] = $column;
+                    }
+                
+                    $carousel = new CarouselTemplateBuilder($columns);
+                    $outputText = new TemplateMessageBuilder("Carousel Demo", $carousel);
                     break;
                 case "ติดต่อเรา":
                     // กำหนด action 2 ปุ่ม 2 ประเภท
