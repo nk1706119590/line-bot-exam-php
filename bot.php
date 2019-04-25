@@ -62,12 +62,12 @@ if(!is_null($events)){
                     // กำหนด action 4 ปุ่ม 4 ประเภท
                     $actionBuilder = array(
                         new MessageTemplateActionBuilder(
-                            'โทร.',// ข้อความแสดงในปุ่ม
-                            '9999' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
+                            'โทร.0000',// ข้อความแสดงในปุ่ม
+                            '0000' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
                         ),
                         new UriTemplateActionBuilder(
-                            'Uri Template', // ข้อความแสดงในปุ่ม
-                            'https://www.ninenik.com'
+                            'เข้าสู่เว็บไซต์', // ข้อความแสดงในปุ่ม
+                            'https://manager.line.biz/account/@578priml/richmenu'
                         ), 
                         new PostbackTemplateActionBuilder(
                             'Postback', // ข้อความแสดงในปุ่ม
