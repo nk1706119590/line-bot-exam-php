@@ -74,7 +74,6 @@ if(!is_null($events)){
                             'https://manager.line.biz/account/@578priml/richmenu'
                         ), 
                     );
-                
                 $imageUrl = 'https://3.bp.blogspot.com/-AEczW23WrA8/V7NMIIdxUwI/AAAAAAAAAHQ/3312FluUinUjlx7xkjl2Mjeki9H0FQxDwCLcB/s1600/contact.jpg';
                     $replyData = new TemplateMessageBuilder('Button Template',
                         new ButtonTemplateBuilder(
@@ -83,8 +82,7 @@ if(!is_null($events)){
                                 $imageUrl, // กำหนด url รุปภาพ
                                 $actionBuilder  // กำหนด action object
                         )
-                    );    
-                         
+                    );           
                    break;
                 case "ติดต่อเรา":
                     // กำหนด action 2 ปุ่ม 2 ประเภท
@@ -117,7 +115,7 @@ if(!is_null($events)){
                     );              
                     break;
                 case "ประชาสัมพันธ์":
-                $textReplyMessage = " test ";
+                    $textReplyMessage = " test ";
                     $replyData = new TextMessageBuilder($textReplyMessage);    
                     break;
                 default:
