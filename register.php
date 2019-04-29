@@ -2,7 +2,20 @@
 <head>
 <title>test</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  
+
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDefx9owB03dGBnxkBSyGl_KRDKx-bZhPc",
+    authDomain: "testlilylisa.firebaseapp.com",
+    databaseURL: "https://testlilylisa.firebaseio.com",
+    projectId: "testlilylisa",
+    storageBucket: "testlilylisa.appspot.com",
+    messagingSenderId: "193330080498"
+  };
+  firebase.initializeApp(config);
+</script>
 <script>
 
 function saveData(){
