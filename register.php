@@ -2,7 +2,11 @@
 <head>
 <title>test</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
 
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 <script>
   // Initialize Firebase
   var config = {
