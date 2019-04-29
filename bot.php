@@ -84,7 +84,7 @@ if(!is_null($events)){
                         )
                     );    
                          
-                    
+                   break;
                 case "ติดต่อเรา":
                     // กำหนด action 2 ปุ่ม 2 ประเภท
                     $actionBuilder = array(
@@ -116,16 +116,8 @@ if(!is_null($events)){
                     );              
                     break;
                 case "ประชาสัมพันธ์":
-                    $actionBuilder = array(
-                        new PostbackTemplateActionBuilder(
-                            'Y',// 
-                            'Yes' // 
-                        ),
-                    ); 
-                    $button = new ConfirmTemplateBuilder(
-                          'confirm',
-                          $actionBuilder
-                      );
+                    $textReplyMessage = " 5555555";
+                    $replyData = new TextMessageBuilder($textReplyMessage);   
                     break;
                 default:
                     $textReplyMessage = " คุณไม่ได้พิมพ์ ค่า ตามที่กำหนด";
