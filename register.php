@@ -27,7 +27,7 @@ function saveData(){
     var conpassword = document.getElementById('txtConPassword');
     var name = document.getElementById('txtName');
     var status = document.getElementById('ddlStatus');
-
+console.log("Insert Success");
     insertData(txtUsername.value, txtPassword.value, txtConPassword.value, txtName.value, ddlStatus.value)
 }
 
