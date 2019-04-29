@@ -60,7 +60,7 @@ if(!is_null($events)){
         case 'text':
             switch ($userMessage) {
                 case "ถาม-ตอบ กับแอดมิน":
-                    $textReplyMessage = "ขณะนี้เป็นระบบตอบกลับอัตโนมัติ ช่วงเวลาทำการของ ถาม-ตอบ กับแอดมิน คือ 10.00 น. - 17.00 น. เท่านั้น";
+                    $textReplyMessage = "ขณะนี้เป็นระบบตอบกลับอัตโนมัติ ช่วงเวลาทำการของ ถาม-ตอบ กับแอดมิน คือ 10.00 น. - 17.00 น. เท่านั้น".<"/br"> "5555";
                     $replyData = new TextMessageBuilder($textReplyMessage);
                     break;
                 case "แจ้งเหตุเสีย":
