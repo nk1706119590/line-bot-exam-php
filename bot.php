@@ -116,8 +116,20 @@ if(!is_null($events)){
                     );              
                     break;
                 case "ประชาสัมพันธ์":
-                    $textReplyMessage = " 5555555";
-                    $replyData = new TextMessageBuilder($textReplyMessage);   
+                $actionBuilder = array(
+                        new UriTemplateActionBuilder(
+                            'เข้าสู่เว็บไซต์', // ข้อความแสดงในปุ่ม
+                            'https://manager.line.biz/account/@578priml/richmenu'
+                        ), 
+                     $imageUrl = 'https://3.bp.blogspot.com/-AEczW23WrA8/V7NMIIdxUwI/AAAAAAAAAHQ/3312FluUinUjlx7xkjl2Mjeki9H0FQxDwCLcB/s1600/contact.jpg';
+                    $replyData = new TemplateMessageBuilder('Button Template',
+                        new ButtonTemplateBuilder(
+                                'ติดต่อเรา', // กำหนดหัวเรื่อง
+                                ' ', // กำหนดรายละเอียด
+                                $imageUrl, // กำหนด url รุปภาพ
+                                $actionBuilder  // กำหนด action object
+                        )
+                    ); 
                     break;
                 default:
                     $textReplyMessage = " คุณไม่ได้พิมพ์ ค่า ตามที่กำหนด";
