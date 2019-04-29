@@ -3,7 +3,6 @@
 <title>test</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
