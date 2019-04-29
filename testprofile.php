@@ -12,6 +12,8 @@
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
     $id = $arrayJson['events'][0]['source']['userId'];
+
+
 #ตัวอย่าง Message Type "Text"
     if($message == "โปรไฟล์"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
