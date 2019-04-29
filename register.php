@@ -29,7 +29,7 @@ function saveData(){
 }
 
 function insertData(username, password, conpassword, name, status){
-    var firebaseRef = firebase.database().ref("Student");
+    var firebaseRef = firebase.database().ref("testlilylisa");
     firebaseRef.push({
         txtUsername: username,
         txtPassword: password,
