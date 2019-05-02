@@ -3,6 +3,8 @@
 <html>
 <head>
 
+
+   
    <title>Page Title</title>
 
 </head>
@@ -16,7 +18,25 @@
 
    <!-- Include the above in your HEAD tag -->
 
+ <script>
+        function saveData() {
+            var name1 = document.getElementById('name');
+            var email1 = document.getElementById('email');
+            
 
+            insertData( email.value, name.value)
+        }
+
+        function insertData(name, email) {
+            var firebaseRef = firebase.database().ref("Information");
+            firebaseRef.push({
+                fristname: name,
+                lastname: email,
+               
+            });
+            console.log("Insert Success");
+        }
+    </script>
 
    <div class="container">
 
