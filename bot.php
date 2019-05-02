@@ -92,8 +92,8 @@ if(!is_null($events)){
                             'ถาม-ตอบ กับแอดมิน' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
                         ),
                         new UriTemplateActionBuilder(
-                            'เข้าสู่เว็บไซต์', // ข้อความแสดงในปุ่ม
-                            'https://manager.line.biz/account/@578priml/richmenu'
+                            'โทร 1112', // ข้อความแสดงในปุ่ม
+                            'tel:1112'
                         ), 
                         /*new PostbackTemplateActionBuilder(
                             'Postback', // ข้อความแสดงในปุ่ม
