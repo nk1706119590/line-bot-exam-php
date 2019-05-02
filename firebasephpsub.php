@@ -2,16 +2,13 @@
 
 
 
-require __DIR__.
-
-'/vendor/autoload.php';
+require_once './vendor/autoload.php';
 
 require 'firebasephp.php';
 
 
-use Kreait\ Firebase\ Factory;
-
-use Kreait\ Firebase\ ServiceAccount;
+use Kreait\Firebase\Factory;
+use Kreait\Firebase\ServiceAccount;
 
 
 $users = new Users();
