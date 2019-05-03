@@ -18,9 +18,9 @@
     $query = "SELECT * FROM register" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
 
-    if($id != null){        
-            $query = "SELECT * FROM register where user_id='$id'"; 
-            $resource = mysqli_query($connect,$query) or die ("error".mysqli_error());
+    if(true){        
+            $queryy = "SELECT * FROM register where user_id='$id'"; 
+            $resource = mysqli_query($connect,$queryy) or die ("error".mysqli_error());
             
             echo "<br/><br/>";
             echo $resource;
