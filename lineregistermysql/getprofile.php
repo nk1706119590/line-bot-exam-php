@@ -11,15 +11,11 @@
     $dbName="db_uuline_test";
 
     $con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
-    $id = "SELECT user_id FROM register";
-$resultt = mysqli_query($con, $id); 
-   
-
-    if($resultt != null){    
-         $query = "SELECT * FROM register" or die("Error:" . mysqli_error()); 
+    
+    $query = "SELECT * FROM register" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
-        
-            echo "<table border='1' align='center' width='500'>";
+   
+    echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
     echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>ชื่อ-นามสกุล</td><td>ที่อยู่</td><td>เบอร์ติดต่อ</td></tr>";
 
@@ -32,7 +28,7 @@ $resultt = mysqli_query($con, $id);
 
     }
 echo "</table>";
-        }
+
     /*echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
     echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>ชื่อ-นามสกุล</td><td>ที่อยู่</td><td>เบอร์ติดต่อ</td></tr>";
