@@ -17,11 +17,15 @@
 
     $query = "SELECT * FROM register" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
+    $count_row = mysqli_num_rows($result);
 
-
-echo $id;
-
-
+    if($count_row < 1){        
+            $query = "SELECT * FROM register where user_id='$id'"; 
+            $resource = mysqli_query($connect,$query) or die ("error".mysqli_error());
+            
+            echo "<br/><br/>";
+            echo $resource;
+        }
     /*echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
     echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>ชื่อ-นามสกุล</td><td>ที่อยู่</td><td>เบอร์ติดต่อ</td></tr>";
