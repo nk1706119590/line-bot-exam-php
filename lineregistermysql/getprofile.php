@@ -23,6 +23,7 @@
     $query = mysqli_query($con,$sql);
     $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
 
+    echo "<br/><br/>";
     echo $result["user_id"];
     echo $result["name"];
     echo $result["address"];
