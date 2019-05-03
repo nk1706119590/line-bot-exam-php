@@ -4,16 +4,27 @@
 </head>
 <body>
 <?php
-    
+
     $serverName="1.179.246.109";
     $userName="root";
     $userPassword="cctsssystem";
     $dbName="db_uuline_test";
-    
+
+    $name = $_REQUEST['name'];
+    $address = $_REQUEST['address'];
+    $phonenumber = $_REQUEST['phonenumber'];
+    $id = $_REQUEST['userid'];
+
     $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
     mysqli_set_charset($connect,"utf8"); 
 
-    if($connect)
+
+    $sql = "select user_id from register where user_id='$id' group by user_id"; 
+    $result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); 
+    $count_row = mysqli_num_rows($result);
+
+
+    if($count_row < 1)
     {
         echo "MySQL Connected";
     }
