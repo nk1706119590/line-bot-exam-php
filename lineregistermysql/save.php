@@ -4,7 +4,7 @@
     $date = date("Y-m-d");
     $time = date("H:i:s");
 
-    $serverName="209.90.88.138";
+    $serverName="127.0.0.1";
     $userName="nan";
     $userPassword="1234";
     $dbName="testtest";
