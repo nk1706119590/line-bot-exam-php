@@ -19,11 +19,19 @@
     $result = mysqli_query($con, $query); 
 
     if(true){        
-            $queryy = "SELECT * FROM register"; 
-            $resource = mysqli_query($connect,$queryy) or die ("error".mysqli_error());
-            
-            echo "<br/><br/>";
-            echo $resource;
+            echo "<table border='1' align='center' width='500'>";
+    //หัวข้อตาราง
+    echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>ชื่อ-นามสกุล</td><td>ที่อยู่</td><td>เบอร์ติดต่อ</td></tr>";
+
+    while($row = mysqli_fetch_array($result)) { 
+      echo "<tr>";
+      echo "<td>" .$row["user_id"] .  "</td> "; 
+      echo "<td>" .$row["name"] .  "</td> ";  
+      echo "<td>" .$row["address"] .  "</td> ";
+      echo "<td>" .$row["phonenumber"] .  "</td> ";
+
+    }
+echo "</table>";
         }
     /*echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
