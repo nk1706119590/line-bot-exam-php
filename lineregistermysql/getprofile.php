@@ -10,9 +10,12 @@
     $userPassword="cctsssystem";
     $dbName="db_uuline_test";
 
+    
+    $id = $_REQUEST['userid'];
+
     $con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
 
-    $query = "SELECT * FROM register WHERE user_id='".$_GET["user_id"]."'" or die("Error:" . mysqli_error()); 
+    $query = "SELECT * FROM register WHERE user_id='$id'" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
 
 
