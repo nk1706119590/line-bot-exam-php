@@ -11,7 +11,7 @@
     $dbName="db_uuline_test";
 
     
-    $id = $_REQUEST['userid'];
+    $id = $_GET['userid'];
 
     $con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
 
