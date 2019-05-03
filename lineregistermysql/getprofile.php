@@ -10,16 +10,15 @@
     $userPassword="cctsssystem";
     $dbName="db_uuline_test";
 
-    
+    $con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
     $id = "SELECT user_id FROM register";
 $resultt = mysqli_query($con, $id); 
+   
 
-    $con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
-
-    $query = "SELECT * FROM register" or die("Error:" . mysqli_error()); 
+    if($resultt != null){    
+         $query = "SELECT * FROM register" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
-
-    if($resultt != null){        
+        
             echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
     echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>ชื่อ-นามสกุล</td><td>ที่อยู่</td><td>เบอร์ติดต่อ</td></tr>";
