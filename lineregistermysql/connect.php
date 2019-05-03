@@ -26,7 +26,7 @@
 
     if($count_row < 1)
     {
-            $query = "INSERT INTO register(user_id,name,address,phonenumber,date) VALUE ('$id', '$name','$address','$phonenumber',NOW())"; 
+            $query = "INSERT INTO register(user_id,name,address,phonenumber,date) VALUE ('$id', '$name', '$address', '$phonenumber',NOW())"; 
             $resource = mysqli_query($connect,$query) or die ("error".mysqli_error());
             
             echo "<br/><br/>";
