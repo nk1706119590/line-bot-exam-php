@@ -18,20 +18,15 @@
     $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
     mysqli_set_charset($connect,"utf8"); 
     
-    $sql = "select user_id from register where user_id='$id' group by user_id"; 
-    $result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); 
-    $count_row = mysqli_num_rows($result);
-    
-        if($count_row < 1){        
-            $query = "select * from register where user_id='$id' group by user_id""; 
-            $resource = mysqli_query($connect,$query) or die ("error".mysqli_error());
-            
-          echo "<br/><br/>";
-            echo '<h1 align="center"><font color="red">*** ยินดีด้วย คุณลงทะเบียนสำเร็จแล้ว ***</font></h1>';
-            echo '<h1 align="center"><font color="red"> กดที่เครื่องหมาย X มุมขวาบนเพื่อปิดหน้าต่างนี้</font></h1>'; 
-            echo '$resource';
-        }
-        else{ 
-            
-        } 
+    $sql = "select * from register where user_id='$id' group by user_id"; 
+    /*$result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); */
+
+    if(!$resultt = $connect->query($sql)){
+        die('Then was an error running the query ['. $connect->error . ']');
+    }
+
+    while($row = $resultt->fetch_assoc()){
+        echo $row['user_id'] . ', ' . $row['name'] . ', ' . $row['address'] . ', ' . $row['phonenumber'] . '<br />';
+    }
+
 ?>
