@@ -14,20 +14,15 @@
     
     $query = "SELECT * FROM register WHERE user_id='".$_POST["user_id"]."'" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
-   
-    echo "<table border='1' align='center' width='500'>";
-    //หัวข้อตาราง
-    echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>ชื่อ-นามสกุล</td><td>ที่อยู่</td><td>เบอร์ติดต่อ</td></tr>";
+    $count_row = mysqli_num_rows($result);
 
-    while($row = mysqli_fetch_array($result)) { 
-      echo "<tr>";
-      echo "<td>" .$row["user_id"] .  "</td> "; 
-      echo "<td>" .$row["name"] .  "</td> ";  
-      echo "<td>" .$row["address"] .  "</td> ";
-      echo "<td>" .$row["phonenumber"] .  "</td> ";
-
+    $resultArray = array();
+    for($i = 0; $i<$count_row; $i++){
+        $row = mysqli_fetch_array($result);
+        array_push($resultArray,$row);
     }
-echo "</table>";
+   
+    echo $resultArray[0];
 
     /*echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
