@@ -31,7 +31,7 @@
     }
     else
     {
-        echo "MySQL Connect Failed : Error : ".mysql_error();
+        echo "MySQL Connect Failed : Error : ";
     }
 
     mysql_close($connect);
