@@ -13,7 +13,7 @@
     $result = mysqli_query($con, $query); 
 
 
-    echo "UserID : "['userId']."<br>";
+    echo "UserID : " . ["userId"] . "<br>";
     
       
 }
