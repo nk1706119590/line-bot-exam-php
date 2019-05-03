@@ -18,7 +18,7 @@
     $query = "SELECT * FROM register" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
 
-    if(true){        
+    if($id == null){        
             echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
     echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>ชื่อ-นามสกุล</td><td>ที่อยู่</td><td>เบอร์ติดต่อ</td></tr>";
