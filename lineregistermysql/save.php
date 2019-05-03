@@ -7,7 +7,7 @@
     $serverName="localhost_3306";
     $userName="nan";
     $userPassword="1234";
-    $dbName="register";
+    $dbName="testtest";
 
     $name = $_REQUEST['name'];
     $samnak = $_REQUEST['samnak'];
