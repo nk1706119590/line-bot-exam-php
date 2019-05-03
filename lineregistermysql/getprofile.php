@@ -1,36 +1,40 @@
 <?php
 
-    date_default_timezone_set("Asia/Bangkok");
-    
-    $date = date("Y-m-d");
-    $time = date("H:i:s");
-    
+require "vendor/autoload.php";
+
+$access_token = 'JOALJaFzXSS1/Iw0lRElqFUMiBHUF4LhFisSOpo9WpfG4Ju5l+o+o5yTWeYVIqOhwPafmf63J283XV1uMahQlwgdfCxzlKipJygVt7h4z9Fbt0mq+eQivXcy4jj4oyvvH8a6cp39m8SO/3I9OyLmVgdB04t89/1O/w1cDnyilFU=';
+$channelSecret = '7410da12768dbb3db2632dd64ed33a12';
+
+$content = file_get_contents('php://input');
+$arrayJson = json_decode($content, true);
+
     $serverName="1.179.246.109";
     $userName="root";
     $userPassword="cctsssystem";
     $dbName="db_uuline_test";
 
     $con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
+    $query = "SELECT user_id FROM register" or die("Error:" . mysqli_error()); 
 
-    $query = "SELECT * FROM register ORDER BY id asc" or die("Error:" . mysqli_error()); 
-//เก็บข้อมูลที่ query ออกมาไว้ในตัวแปร result . 
     $result = mysqli_query($con, $query); 
-// แสดงข้อมูลที่ query ออกมา โดยใช้ตารางในการจัดข้อมูล: 
 
-    echo "<table border='1' align='center' width='500'>";
-    //หัวข้อตาราง
-    echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>ชื่อ-นามสกุล</td><td>ที่อยู่</td><td>เบอร์ติดต่อ</td></tr>";
 
-    while($row = mysqli_fetch_array($result)) { 
-      echo "<tr>";
-      echo "<td>" .$row["user_id"] .  "</td> "; 
-      echo "<td>" .$row["name"] .  "</td> ";  
-      echo "<td>" .$row["address"] .  "</td> ";
-      echo "<td>" .$row["phonenumber"] .  "</td> ";
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
-    }
-echo "</table>";
-//close connection
-mysqli_close($con);
+$response = $bot->getProfile($query);
+if ($response->isSucceeded()) {
+    $profile = $response->getJSONDecodedBody();
+    echo "UserID : " .$profile['userId']."<br>";
+    echo "Name : " .$profile['displayName']."<br>";
+    echo "Pic : " .$profile['pictureUrl']."<br>";
+    echo "Status : " .$profile['statusMessage'];
+      
+}
 ?>
+
+
+
+
+
 
