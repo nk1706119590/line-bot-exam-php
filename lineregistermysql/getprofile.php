@@ -17,9 +17,8 @@
 
     $query = "SELECT * FROM register" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
-    $count_row = mysqli_num_rows($result);
 
-    if($count_row < 1){        
+    if($id != null){        
             $query = "SELECT * FROM register where user_id='$id'"; 
             $resource = mysqli_query($connect,$query) or die ("error".mysqli_error());
             
