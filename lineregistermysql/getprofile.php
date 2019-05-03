@@ -10,9 +10,11 @@
     $userPassword="cctsssystem";
     $dbName="db_uuline_test";
 
+    $id = $_REQUEST['userid'];
+
     $con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
 
-    $query = "SELECT * FROM register ORDER BY id asc" or die("Error:" . mysqli_error()); 
+    $query = "SELECT * FROM register where user_id='$id'" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
 
 
