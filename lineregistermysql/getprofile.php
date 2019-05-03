@@ -11,14 +11,14 @@
     $dbName="db_uuline_test";
 
     
-    $id = $_GET['userid'];
+    $id = "SELECT user_id FROM register";
 
     $con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
 
     $query = "SELECT * FROM register" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
 
-    if($id == null){        
+    if($id != null){        
             echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
     echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>ชื่อ-นามสกุล</td><td>ที่อยู่</td><td>เบอร์ติดต่อ</td></tr>";
