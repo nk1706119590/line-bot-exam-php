@@ -26,12 +26,13 @@
 
     if($count_row > 1)
     {
+        
             echo "*** ยินดีด้วย คุณลงทะเบียนสำเร็จแล้ว ***";
             echo "กดที่เครื่องหมาย X มุมขวาบนเพื่อปิดหน้าต่างนี้"; 
     }
     else
     {
-        echo "MySQL Connect Failed : Error : ";
+        echo "MySQL Connect Failed";
     }
 
     mysql_close($connect);
