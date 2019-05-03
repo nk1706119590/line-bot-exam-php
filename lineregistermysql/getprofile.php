@@ -15,11 +15,14 @@
 
     $con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
 
-    $query = "SELECT * FROM register WHERE user_id='$id'" or die("Error:" . mysqli_error()); 
+    $query = "SELECT * FROM register" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
 
 
-    echo "<table border='1' align='center' width='500'>";
+echo $id;
+
+
+    /*echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
     echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>ชื่อ-นามสกุล</td><td>ที่อยู่</td><td>เบอร์ติดต่อ</td></tr>";
 
@@ -28,7 +31,7 @@
       echo "<td>" .$row["user_id"] .  "</td> "; 
       echo "<td>" .$row["name"] .  "</td> ";  
       echo "<td>" .$row["address"] .  "</td> ";
-      echo "<td>" .$row["phonenumber"] .  "</td> ";
+      echo "<td>" .$row["phonenumber"] .  "</td> ";*/
 
     }
 echo "</table>";
