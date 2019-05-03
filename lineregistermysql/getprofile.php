@@ -19,7 +19,7 @@
     $result = mysqli_query($con, $query); 
 
     if(true){        
-            $queryy = "SELECT * FROM register where user_id='$id'"; 
+            $queryy = "SELECT * FROM register"; 
             $resource = mysqli_query($connect,$queryy) or die ("error".mysqli_error());
             
             echo "<br/><br/>";
