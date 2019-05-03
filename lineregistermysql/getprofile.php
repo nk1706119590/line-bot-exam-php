@@ -12,13 +12,13 @@
 
     $con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
     
-    $query = "SELECT * FROM register WHERE user_id='".$_POST["user_id"]."'" or die("Error:" . mysqli_error()); 
+    $query = "SELECT * FROM register" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
     $count_row = mysqli_num_rows($result);
 
     $resultArray = array();
     for($i = 0; $i<$count_row; $i++){
-        $row = mysqli_fetch_array($result);
+        $row = mysqli_fetch_array($query);
         array_push($resultArray,$row);
     }
    
