@@ -31,10 +31,10 @@ echo $id;
       echo "<td>" .$row["user_id"] .  "</td> "; 
       echo "<td>" .$row["name"] .  "</td> ";  
       echo "<td>" .$row["address"] .  "</td> ";
-      echo "<td>" .$row["phonenumber"] .  "</td> ";*/
+      echo "<td>" .$row["phonenumber"] .  "</td> ";
 
     }
-echo "</table>";
+echo "</table>";*/
 //close connection
 mysqli_close($con);
 ?>
