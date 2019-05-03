@@ -4,12 +4,16 @@
 </head>
 <body>
 <?php
-    $host = "localhost";
-    $username = "nan";
-    $password = "1234";
-    $objConnect = mysql_connect($host,$username,$password);
+    
+    $serverName="1.179.246.109";
+    $userName="root";
+    $userPassword="cctsssystem";
+    $dbName="db_uuline_test";
+    
+    $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
+    mysqli_set_charset($connect,"utf8"); 
 
-    if($objConnect)
+    if($connect)
     {
         echo "MySQL Connected";
     }
@@ -18,7 +22,7 @@
         echo "MySQL Connect Failed : Error : ".mysql_error();
     }
 
-    mysql_close($objConnect);
+    mysql_close($connect);
 ?>
 </body>
 </html>
