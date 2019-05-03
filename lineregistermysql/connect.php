@@ -24,7 +24,7 @@
     $count_row = mysqli_num_rows($result);
 
 
-    if($count_row > 1)
+    if($count_row < 1)
     {
         
             echo "*** ยินดีด้วย คุณลงทะเบียนสำเร็จแล้ว ***";
