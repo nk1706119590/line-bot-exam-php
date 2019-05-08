@@ -30,7 +30,7 @@
             echo '<h1 align="center"><font color="red"> กดที่เครื่องหมาย X มุมขวาบนเพื่อปิดหน้าต่างนี้</font></h1>'; 
         }
         else{ 
-            while($result =mysqli_fetch_array($resource_line)){
+            while($res =mysqli_fetch_array($result)){
                 echo "Name : " .$res['name'];
             }
             
