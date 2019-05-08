@@ -17,7 +17,7 @@ $channelSecret = '7410da12768dbb3db2632dd64ed33a12';
     $name = $_REQUEST['name'];
     $address = $_REQUEST['address'];
     $phonenumber = $_REQUEST['phonenumber'];
-    $id = $_GET['userid'];
+    $id = $_REQUEST['userid'];
 
 $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
