@@ -33,7 +33,7 @@
             
             while($res =mysqli_fetch_array($result)){
                 
-                echo "Display Name : " .  . "</br>";
+                echo "Display Name : ";
                 echo "Name : " . $res['name'] . "</br>";
                 echo "Address : " . $res['address'] . "</br>";
                 echo "No : " . $res['phonenumber'] . "</br>";
