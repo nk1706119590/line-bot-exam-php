@@ -13,19 +13,19 @@
     $name = $_REQUEST['name'];
     $address = $_REQUEST['address'];
     $phonenumber = $_REQUEST['phonenumber'];
-    $id = $_REQUEST['userid'];
+    $id = $_GET['userid'];
 
     $con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
     
-    $query = "SELECT user_id FROM register where user_id='$id'" or die("Error:" . mysqli_error()); 
+    $query = "SELECT * FROM register where user_id='$id'" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
     $count_row = mysqli_num_rows($result);
 
     if($count_row > 0){
-        /*while($res = mysqli_fetch_array($result)){
-            $user_id = $result['user_id'];
-        }*/
-        echo "UserID : " .$id;;
+        while($res = mysqli_fetch_array($result)){
+            echo "UserID : " .$id;;
+        }
+        
     }
     else {
         echo "คุณยังไม่ได้ลงทะเบียน";
