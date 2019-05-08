@@ -25,16 +25,14 @@
             echo '<h1 align="center"><font color="red"> กดที่เครื่องหมาย X มุมขวาบนเพื่อปิดหน้าต่างนี้</font></h1>'; 
         }
         else{ 
+            echo '<h1></h1>';
             echo "UserID : " . $id . "</br>";
             
             while($res =mysqli_fetch_array($result)){
-                 echo "Name : " . $res['name'] . "</br>";
+                echo '<h1></h1>';
+                echo "Name : " . $res['name'] . "</br>";
                 echo "Address : " . $res['address'] . "</br>";
                 echo "No : " . $res['phonenumber'] . "</br>";
             }
-            
-           
-            echo '<h1 align="center"><font color="red">*** ขอโทษด้วย คุณเคยลงทะเบียนแล้ว ***</font></h1>';
-            echo '<h1 align="center"><font color="red"> กดที่เครื่องหมาย X มุมขวาบนเพื่อปิดหน้าต่างนี้</font></h1>';
         } 
 ?>
