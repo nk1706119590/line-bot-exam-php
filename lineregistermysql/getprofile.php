@@ -12,7 +12,7 @@
     $name = $_REQUEST['name'];
     $address = $_REQUEST['address'];
     $phonenumber = $_REQUEST['phonenumber'];
-    $id = $_GET['userid'];
+    $id = $_REQUEST['userid'];
     
     $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
     mysqli_set_charset($connect,"utf8"); 
@@ -30,10 +30,7 @@
             echo '<h1 align="center"><font color="red"> กดที่เครื่องหมาย X มุมขวาบนเพื่อปิดหน้าต่างนี้</font></h1>'; 
         }
         else{ 
-            while($res =mysqli_fetch_array($result)){
-                echo "Name : " .$res['name'];
-            }
-            
+            echo "Name : " .$res['name'] . "</br>";
             echo '<h1 align="center"><font color="red">*** ขอโทษด้วย คุณเคยลงทะเบียนแล้ว ***</font></h1>';
             echo '<h1 align="center"><font color="red"> กดที่เครื่องหมาย X มุมขวาบนเพื่อปิดหน้าต่างนี้</font></h1>';
         } 
