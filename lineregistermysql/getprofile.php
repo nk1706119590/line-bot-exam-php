@@ -12,12 +12,20 @@
 
     $con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
     
-    $query = "SELECT * FROM register" or die("Error:" . mysqli_error()); 
+    $query = "SELECT user_id FROM register" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
     $count_row = mysqli_num_rows($result);
 
 
-    echo "<table border='1' align='center' width='500'>";
+    if($count_row > 0){
+        while($res = mysqli_fetch_array($result)){
+            $user_id = $result['user_id'];
+            
+            echo $user_id;
+        }
+    }
+
+    /*echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
     echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>ชื่อ-นามสกุล</td><td>ที่อยู่</td><td>เบอร์ติดต่อ</td></tr>";
 
@@ -29,7 +37,7 @@
           echo "<td>" .$row["phonenumber"] .  "</td> ";
 
         }
-    echo "</table>";
+    echo "</table>";*/
 //close connection
 mysqli_close($con);
 ?>
