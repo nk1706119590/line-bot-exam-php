@@ -10,21 +10,26 @@
     $userPassword="cctsssystem";
     $dbName="db_uuline_test";
 
+    $name = $_REQUEST['name'];
+    $address = $_REQUEST['address'];
+    $phonenumber = $_REQUEST['phonenumber'];
+    $id = $_REQUEST['userid'];
+
     $con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
     
-    $query = "SELECT user_id FROM register" or die("Error:" . mysqli_error()); 
+    $query = "SELECT user_id FROM register where user_id='$id'" or die("Error:" . mysqli_error()); 
     $result = mysqli_query($con, $query); 
     $count_row = mysqli_num_rows($result);
 
-    $u_id = $_GET['id'];    
-
     if($count_row > 0){
-        while($res = mysqli_fetch_array($result)){
+        /*while($res = mysqli_fetch_array($result)){
             $user_id = $result['user_id'];
-        }
+        }*/
+        echo "๊UserID : " .$result['user_id'];
     }
-
-echo $u_id;
+    else {
+        echo "คุณยังไม่ได้ลงทะเบียน";
+    }
 
     /*echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
