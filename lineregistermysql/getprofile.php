@@ -30,7 +30,7 @@
             
             while($res =mysqli_fetch_array($result)){
                 echo '<img style="width:100px;" src="'.$res['pic'].'" /><br><br>';
-                echo "UserID : " . $res['id'] . "</br>";  
+                echo "UserID : " . $id . "</br>";  
                 echo "Display Name : " . "</br>";
                 echo "Name : " . $res['name'] . "</br>";
                 echo "Address : " . $res['address'] . "</br>";
