@@ -20,10 +20,10 @@
     if($count_row > 0){
         while($res = mysqli_fetch_array($result)){
             $user_id = $result['user_id'];
-            
-            echo $user_id;
         }
     }
+
+echo $user_id;
 
     /*echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
