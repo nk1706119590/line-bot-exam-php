@@ -14,6 +14,7 @@
     $address = $_REQUEST['address'];
     $phonenumber = $_REQUEST['phonenumber'];
     $id = $_REQUEST['userid'];
+    $profileURL = "https://api.line.me/v2/profile";
     
     $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
     mysqli_set_charset($connect,"utf8"); 
@@ -31,7 +32,7 @@
             while($res =mysqli_fetch_array($result)){
                 echo '<img style="width:100px;" src="'.$res['pic'].'" /><br><br>';
                 echo "UserID : " . $id . "</br>";  
-                echo "Display Name : " . "</br>";
+                echo "Display Name : " . $profileURL . "</br>";
                 echo "Name : " . $res['name'] . "</br>";
                 echo "Address : " . $res['address'] . "</br>";
                 echo "No : " . $res['phonenumber'] . "</br>";
