@@ -9,6 +9,8 @@
     $userPassword="cctsssystem";
     $dbName="db_uuline_test";
 
+    $displayname = $_REQUEST['displayname'];
+    $pic = $_REQUEST['pic'];
     $name = $_REQUEST['name'];
     $address = $_REQUEST['address'];
     $phonenumber = $_REQUEST['phonenumber'];
@@ -22,7 +24,7 @@
     $count_row = mysqli_num_rows($result);
 
         if($count_row < 1){        
-            $query = "INSERT INTO register(user_id,name,address,phonenumber,date) VALUE ('$id', '$name','$address','$phonenumber',NOW())"; 
+            $query = "INSERT INTO register(user_id,displayname,pic,name,address,phonenumber) VALUE ('$id', '$displayname', '$pic', '$name','$address','$phonenumber')"; 
             $resource = mysqli_query($connect,$query) or die ("error".mysqli_error());
             
             echo "<br/><br/>";
