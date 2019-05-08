@@ -22,7 +22,7 @@
         array_push($resultArray,$row);
     }
    
-    echo $resultArray[5];
+    echo $result
 
     /*echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
