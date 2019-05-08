@@ -29,11 +29,13 @@
     });
 //ButtonGetProfile
     $('#ButtonGetProfile').click(function () {
-        liff.getProfile().then(
-        profile=> {
-        $('#UserInfo').val(profile.displayName);
-        alert('done');
-        });
+        liff.getProfile()
+            .then(profile => {
+              const name = profile.displayName
+            })
+            .catch((err) => {
+              console.log('error', err);
+            });
     });
 //ButtonSendMsg #QueryString
     $('#ButtonSendMsg').click(function () {
@@ -62,7 +64,7 @@
                 
                 <label id="phonenumber" ></label>
                
-                <button class="btn btn-primary" > โปรไฟล์ </button><br /><br />
+                <button class="btn btn-primary" id="ButtonGetProfile"> โปรไฟล์ </button><br /><br />
                
             </div>
         </div>
