@@ -10,7 +10,7 @@
     $userPassword="cctsssystem";
     $dbName="db_uuline_test";
 
-    $name = $_REQUEST['name'];
+    $name = $_GET['name'];
     $address = $_REQUEST['address'];
     $phonenumber = $_REQUEST['phonenumber'];
     $id = $_GET['userid'];
@@ -23,7 +23,7 @@
 
     if($count_row > 0){
         while($res = mysqli_fetch_array($result)){
-            echo "UserID : " .$id;;
+            echo "Name : " .$name;;
         }
         
     }
