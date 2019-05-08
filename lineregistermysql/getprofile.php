@@ -16,6 +16,7 @@
     $result = mysqli_query($con, $query); 
     $count_row = mysqli_num_rows($result);
 
+    $u_id = $_GET['id'];    
 
     if($count_row > 0){
         while($res = mysqli_fetch_array($result)){
@@ -23,7 +24,7 @@
         }
     }
 
-echo $user_id;
+echo $u_id;
 
     /*echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
