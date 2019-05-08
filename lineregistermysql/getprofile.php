@@ -17,12 +17,8 @@
     $result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); 
     $count_row = mysqli_num_rows($result);
         if($count_row < 1){        
-            $query = "INSERT INTO register(user_id,name,address,phonenumber,date) VALUE ('$id', '$name','$address','$phonenumber',NOW())"; 
-            $resource = mysqli_query($connect,$query) or die ("error".mysqli_error());
-            
             echo "<br/><br/>";
-            echo '<h1 align="center"><font color="red">*** ยินดีด้วย คุณลงทะเบียนสำเร็จแล้ว ***</font></h1>';
-            echo '<h1 align="center"><font color="red"> กดที่เครื่องหมาย X มุมขวาบนเพื่อปิดหน้าต่างนี้</font></h1>'; 
+            echo '<h1 align="center"><font color="red">*** คุณยังไม่ได้ลงทะเบียน ***</font></h1>';
         }
         else{ 
             echo '<h1></h1>';
