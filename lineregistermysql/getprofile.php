@@ -23,9 +23,9 @@
 
     if($count_row > 0){
         while($res = mysqli_fetch_array($result)){
-            if($res['user_id' == $id]){
-                echo "Name : " .$res['name'];
-            }
+            $u_id = $res['user_id'];
+            
+            echo "UserID : " .$u_id];
         }  
     }
     else {
