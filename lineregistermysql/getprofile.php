@@ -10,10 +10,10 @@
     $userPassword="cctsssystem";
     $dbName="db_uuline_test";
 
-    $name = $_GET['name'];
+    $name = $_REQUEST['name'];
     $address = $_REQUEST['address'];
     $phonenumber = $_REQUEST['phonenumber'];
-    $id = $_GET['userid'];
+    $id = $_REQUEST['userid'];
 
     $con = mysqli_connect($serverName,$userName,$userPassword,$dbName);
     
@@ -23,9 +23,10 @@
 
     if($count_row > 0){
         while($res = mysqli_fetch_array($result)){
-            echo "Name : " .$res['name'];;
-        }
-        
+            if($res['user_id' == $id]){
+                echo "Name : " .$res['name'];
+            }
+        }  
     }
     else {
         echo "คุณยังไม่ได้ลงทะเบียน";
