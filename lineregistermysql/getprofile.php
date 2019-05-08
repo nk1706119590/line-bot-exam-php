@@ -13,7 +13,7 @@
     
     $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
     mysqli_set_charset($connect,"utf8"); 
-    $sql = "select user_id from register where user_id='$id' group by user_id"; 
+    $sql = "select * from register where user_id='$id' group by user_id"; 
     $result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); 
     $count_row = mysqli_num_rows($result);
         if($count_row < 1){        
