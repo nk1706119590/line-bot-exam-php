@@ -16,11 +16,7 @@
     $result = mysqli_query($con, $query); 
     $count_row = mysqli_num_rows($result);
 
-    $resultArray = array();
-    for($i = 0; $i<$count_row; $i++){
-        $row = mysqli_fetch_array($query);
-        array_push($resultArray,$row);
-    }
+    
    
     echo $result
 
