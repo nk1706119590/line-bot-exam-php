@@ -30,7 +30,8 @@
             echo '<h1 align="center"><font color="red"> กดที่เครื่องหมาย X มุมขวาบนเพื่อปิดหน้าต่างนี้</font></h1>'; 
         }
         else{ 
-            echo '<h1 align="center"><font color="red">. $id </font></h1>';
+            echo . $id ;
+            echo '<h1 align="center"><font color="red">  </font></h1>';
             echo '<h1 align="center"><font color="red"> กดที่เครื่องหมาย X มุมขวาบนเพื่อปิดหน้าต่างนี้</font></h1>';
         } 
 ?>
