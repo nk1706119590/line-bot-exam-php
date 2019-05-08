@@ -45,7 +45,7 @@ if ($response->isSucceeded()) {
     $sql = "select * from register where user_id='$id' group by user_id"; 
     $result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); 
     $count_row = mysqli_num_rows($result);
-        if(false){        
+        if($count_row < 1){        
             echo "<br/><br/>";
             echo '<h1 align="center"><font color="red">*** คุณยังไม่ได้ลงทะเบียน ***</font></h1>';
         }
@@ -88,4 +88,4 @@ echo $result;*/
 
 
 
-
+?>
