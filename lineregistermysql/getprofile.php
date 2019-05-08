@@ -23,9 +23,7 @@
 
     if($count_row > 0){
         while($res = mysqli_fetch_array($result)){
-            $u_id = $res['user_id'];
-            
-            echo "UserID : " .$u_id];
+            echo "UserID : " .$res['user_id'] . "</br>";
         }  
     }
     else {
