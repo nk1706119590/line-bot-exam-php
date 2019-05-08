@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>โปรไฟล์</title>
+    <title>ระบบลงทะเบียนผู้ใช้งาน</title>
 
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     <script src="lib/jquery-3.3.1.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
     <link href="lib/bootstrap.min.css" rel="stylesheet" />
-    
     <script>
 //init LIFF
     function initializeApp(data) {
@@ -29,7 +28,7 @@
         initializeApp(data);
     });
 //ButtonGetProfile
-    $('#ButtonGetProfile').ready(function () {
+    $('#ButtonGetProfile').click(function () {
         liff.getProfile().then(
         profile=> {
         $('#UserInfo').val(profile.displayName);
@@ -53,10 +52,20 @@
     </script>
 </head>
 <body>
-    <form action="getprofile.php" method="get">
+    <form action="save.php" method="get">
         <div class="row">
             <div class="col-md-6" style="margin:5px">
-                <button class="btn btn-primary" >โปรไฟล์</button>
+
+                <input class="form-control" type="hidden" id="userid" name="userid" /> <br />
+                <label>ชื่อ-นามสกุล : </label>
+                <input class="form-control" type="text" id="name" name="name"/><br /><br />
+                <label>ที่อยู่ : </label>
+                <input class="form-control" type="text" id="address" name="address" /><br /><br />
+                <label>เบอร์ติดต่อ : </label>
+                <input class="form-control" type="text" id="phonenumber" name="phonenumber" /><br /><br />
+
+                <button class="btn btn-primary" > โปรไฟล์ </button><br /><br />
+                
 
             </div>
         </div>
