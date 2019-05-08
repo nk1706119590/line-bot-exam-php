@@ -16,23 +16,20 @@
     $result = mysqli_query($con, $query); 
     $count_row = mysqli_num_rows($result);
 
-    
-   
-    echo $result
 
-    /*echo "<table border='1' align='center' width='500'>";
+    echo "<table border='1' align='center' width='500'>";
     //หัวข้อตาราง
     echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>ชื่อ-นามสกุล</td><td>ที่อยู่</td><td>เบอร์ติดต่อ</td></tr>";
 
-    while($row = mysqli_fetch_array($result)) { 
-      echo "<tr>";
-      echo "<td>" .$row["user_id"] .  "</td> "; 
-      echo "<td>" .$row["name"] .  "</td> ";  
-      echo "<td>" .$row["address"] .  "</td> ";
-      echo "<td>" .$row["phonenumber"] .  "</td> ";
+        while($row = mysqli_fetch_array($result)) { 
+          echo "<tr>";
+          echo "<td>" .$row["user_id"] .  "</td> "; 
+          echo "<td>" .$row["name"] .  "</td> ";  
+          echo "<td>" .$row["address"] .  "</td> ";
+          echo "<td>" .$row["phonenumber"] .  "</td> ";
 
-    }
-echo "</table>";*/
+        }
+    echo "</table>";
 //close connection
 mysqli_close($con);
 ?>
