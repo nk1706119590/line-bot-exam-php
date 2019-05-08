@@ -22,12 +22,7 @@
     $result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); 
     $count_row = mysqli_num_rows($result);
 
-        if($count_row < 1){        
-            echo "<br/><br/>";
-            echo '<h1 align="center"><font color="red">*** คุณยังไม่ได้ลงทะเบียน ***</font></h1>';
-        }
-        else{ 
-            echo '<h1></h1>';
+        if($count_row > 1){        
             echo "UserID : " . $id . "</br>";
             
             while($res =mysqli_fetch_array($result)){
@@ -36,5 +31,11 @@
                 echo "Address : " . $res['address'] . "</br>";
                 echo "No : " . $res['phonenumber'] . "</br>";
             }
+        }
+        else{ 
+            echo "<br/><br/>";
+            echo '<h1 align="center"><font color="red">*** คุณยังไม่ได้ลงทะเบียน ***</font></h1>';
+            
+            
         } 
 ?>
