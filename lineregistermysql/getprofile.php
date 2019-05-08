@@ -14,7 +14,6 @@
     $address = $_REQUEST['address'];
     $phonenumber = $_REQUEST['phonenumber'];
     $id = $_REQUEST['userid'];
-    $dpn = $_REQUEST['ButtonGetProfile'];
     
     $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
     mysqli_set_charset($connect,"utf8"); 
@@ -28,12 +27,13 @@
             echo '<h1 align="center"><font color="red">*** คุณยังไม่ได้ลงทะเบียน ***</font></h1>';
         }
         else{ 
+            echo '<img style="width:100px;" url="https://i.pinimg.com/originals/b5/63/d2/b563d20a1588b6eac86e8da672d2c45b.jpg" /><br>';
             echo '<h1></h1>';
             echo "UserID : " . $id . "</br>";
             
             while($res =mysqli_fetch_array($result)){
                 
-                echo "Display Name : " . $res['ButtonGetProfile'] . "</br>";
+                echo "Display Name : " .  . "</br>";
                 echo "Name : " . $res['name'] . "</br>";
                 echo "Address : " . $res['address'] . "</br>";
                 echo "No : " . $res['phonenumber'] . "</br>";
