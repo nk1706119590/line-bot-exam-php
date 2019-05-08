@@ -17,7 +17,7 @@ $channelSecret = '7410da12768dbb3db2632dd64ed33a12';
     $name = $_REQUEST['name'];
     $address = $_REQUEST['address'];
     $phonenumber = $_REQUEST['phonenumber'];
-    $id = $_REQUEST['userid'];
+    $id = $_GET['userid'];
 
 $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
@@ -35,7 +35,7 @@ if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo '<img style="width:100px;" src="'.$profile['pictureUrl'].'" /><br><br>';
     echo "UserID : " .$profile['userId']."<br>";
-    echo "Name : " .$profile['displayName']."<br>";
+    echo "Display Name : " .$profile['displayName']."<br>";
     echo "Status : " .$profile['statusMessage']."<br>";
       
 }
