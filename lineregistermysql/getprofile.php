@@ -25,7 +25,7 @@
         /*while($res = mysqli_fetch_array($result)){
             $user_id = $result['user_id'];
         }*/
-        echo "๊UserID : " .$result['user_id'];
+        echo "๊UserID : ";
     }
     else {
         echo "คุณยังไม่ได้ลงทะเบียน";
