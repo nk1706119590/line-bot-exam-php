@@ -35,7 +35,7 @@ if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo '<img style="width:100px;" src="'.$profile['pictureUrl'].'" /><br><br>';
     echo "UserID : " .$profile['userId']."<br>";
-    echo "Name : " .$profile['displayName']."<br>";
+    echo "Display Name : " .$profile['displayName']."<br>";
     echo "Status : " .$profile['statusMessage']."<br>";
       
 }
