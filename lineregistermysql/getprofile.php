@@ -23,7 +23,7 @@
 
     if($count_row > 0){
         while($res = mysqli_fetch_array($result)){
-            echo "Name : " .$name;;
+            echo "Name : " .$res['name'];;
         }
         
     }
