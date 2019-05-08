@@ -9,8 +9,6 @@
     $userPassword="cctsssystem";
     $dbName="db_uuline_test";
 
-    $displayname = $_REQUEST['displayname'];
-    $pic = $_REQUEST['pic'];
     $name = $_REQUEST['name'];
     $address = $_REQUEST['address'];
     $phonenumber = $_REQUEST['phonenumber'];
@@ -19,12 +17,12 @@
     $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
     mysqli_set_charset($connect,"utf8"); 
 
-    $sql = "select user_id from regis_line where user_id='$id' group by user_id"; 
+    $sql = "select user_id from register where user_id='$id' group by user_id"; 
     $result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); 
     $count_row = mysqli_num_rows($result);
 
         if($count_row < 1){        
-            $query = "INSERT INTO register(user_id,displayname,pic,name,address,phonenumber) VALUE ('$id', '$displayname', '$pic', '$name','$address','$phonenumber')"; 
+            $query = "INSERT INTO register(user_id,name,address,phonenumber,date) VALUE ('$id', '$name','$address','$phonenumber',NOW())"; 
             $resource = mysqli_query($connect,$query) or die ("error".mysqli_error());
             
             echo "<br/><br/>";
