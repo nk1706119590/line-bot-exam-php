@@ -13,6 +13,9 @@
     $address = $_REQUEST['address'];
     $phonenumber = $_REQUEST['phonenumber'];
     $id = $_REQUEST['userid'];
+    $pic = $_REQUEST['pictureUrl'];
+    $dpname = $_REQUEST['displayName'];
+    $status = $_REQUEST['statusMessage'];
     
     $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
     mysqli_set_charset($connect,"utf8"); 
@@ -22,7 +25,7 @@
     $count_row = mysqli_num_rows($result);
 
         if($count_row < 1){        
-            $query = "INSERT INTO register(user_id,name,address,phonenumber,date) VALUE ('$id', '$name','$address','$phonenumber',NOW())"; 
+            $query = "INSERT INTO register(user_id,name,address,phonenumber,date) VALUE ('$id', '$name','$address','$phonenumber','$pic','$dpname','$status',NOW())"; 
             $resource = mysqli_query($connect,$query) or die ("error".mysqli_error());
             
             echo "<br/><br/>";
