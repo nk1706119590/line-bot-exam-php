@@ -55,6 +55,10 @@ if ($response->isSucceeded()) {
                 echo "Name : " . $res['name'] . "</br>";
                 echo "Address : " . $res['address'] . "</br>";
                 echo "No : " . $res['phonenumber'] . "</br>";
+                echo "Display Name : " . $res['dpname'] . "</br>";
+                echo "Status : " . $res['status'] . "</br>";
+                echo '<img style="width:100px;" src="'.$res['pic'].'" /><br><br>';
+                
             }
         } 
 /*$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($id);
