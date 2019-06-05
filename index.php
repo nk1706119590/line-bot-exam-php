@@ -20,7 +20,8 @@
     $result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); 
     
       while($row = mysqli_fetch_assoc($result)){
-            echo $row['token_id'];
+            $accessToken = $row['token_id'];
+         echo $accessToken;
       }
 //$accessToken = $result;//ดึงมาจาก db
    
