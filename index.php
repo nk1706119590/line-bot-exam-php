@@ -24,6 +24,8 @@ $accessToken = $result;//ดึงมาจาก db
 $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
   
+
+echo $result;
 /*$arrayHeader = array();
    $arrayHeader[] = "Content-Type: application/json";
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
