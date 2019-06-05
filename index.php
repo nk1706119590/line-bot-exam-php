@@ -18,7 +18,7 @@
 
     $sql = "select token_id from tbl_tokenidlinebot where name='$name'"; 
     $result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); 
-    $value = mysql_fetch_object($result);
+    $value = mysqli_fetch_object($result);
 //$accessToken = $result;//ดึงมาจาก db
    
 /*$content = file_get_contents('php://input');
