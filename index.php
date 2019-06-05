@@ -12,6 +12,7 @@
     $token_id = $_GET['token_id'];
     $channelid = $_GET['channelid'];
     $cns = $_GET['channelsecreat'];
+    $txt = $_REQUEST["text"];
     
     $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
     mysqli_set_charset($connect,"utf8"); 
@@ -33,7 +34,7 @@ $arrayHeader = array();
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
    //รับข้อความจากผู้ใช้
    echo $accessToken . "<br/><br/>";
-   exho $_REQUEST["text"];
+   echo $txt;
 /*if(true){        
             if($result != null)
             {
