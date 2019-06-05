@@ -33,7 +33,7 @@ $arrayJson = json_decode($content, true);*/
 if(true){        
             if($result != null)
             {
-               echo 'OK';
+               echo $result;
             }
             else{ 
             echo 'NO5555';
