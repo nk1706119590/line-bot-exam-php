@@ -25,8 +25,8 @@
       }
 //$accessToken = $result;//ดึงมาจาก db
    
-//$content = file_get_contents('php://input');
-//$arrayJson = json_decode($content, true);
+$content = file_get_contents('php://input');
+$arrayJson = json_decode($content, true);
   
 
 $arrayHeader = array();
@@ -48,13 +48,13 @@ $arrayHeader = array();
         else{ 
             echo 'NO';
         } */
-//$message = $txt;
+$message = $arrayJson['events'][0]['message']['text'];
    //รับ id ของผู้ใช้
    
-$id = "U633040010603551b111b2e3900ff1135";
+$id = 'U633040010603551b111b2e3900ff1135';
    #ตัวอย่าง Message Type "Text + Sticker"
 
-if($txt != null){
+if($message != null){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "อันองงงง";
