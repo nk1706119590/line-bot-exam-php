@@ -33,7 +33,8 @@ $arrayHeader = array();
    $arrayHeader[] = "Content-Type: application/json";
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
    //รับข้อความจากผู้ใช้
-   echo $accessToken;
+   echo $accessToken . "<br>";
+   echo $txt;
 /*if(true){        
             if($result != null)
             {
