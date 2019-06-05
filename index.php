@@ -12,7 +12,6 @@
     $token_id = $_GET['token_id'];
     $channelid = $_GET['channelid'];
     $cns = $_GET['channelsecreat'];
-    $txt = $_REQUEST["text"];
     
     $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
     mysqli_set_charset($connect,"utf8"); 
@@ -33,7 +32,7 @@ $arrayHeader = array();
    $arrayHeader[] = "Content-Type: application/json";
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
    //รับข้อความจากผู้ใช้
-   echo $accessToken . "<br/><br/>";
+   /*echo $accessToken . "<br/><br/>";
    exho $txt;
 /*if(true){        
             if($result != null)
@@ -51,10 +50,10 @@ $arrayHeader = array();
 //$message = $txt;
    //รับ id ของผู้ใช้
    
-/*$id = "U633040010603551b111b2e3900ff1135";
+$id = "U633040010603551b111b2e3900ff1135";
    #ตัวอย่าง Message Type "Text + Sticker"
 
-if($txt != null){
+if($_REQUEST["text"] != null){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "อันองงงง";
