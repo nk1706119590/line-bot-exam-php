@@ -35,20 +35,11 @@ $arrayHeader = array();
    //รับข้อความจากผู้ใช้
    //echo $accessToken . "<br/><br/>";
    //echo $txt;
-/*if(true){        
-            if($txt != null)
-            {
-               echo "Study PHP at " . $txt . "<br>";
-            }
-            else{ 
-            echo 'NO5555';
-        }
-            
-        }
-        else{ 
-            echo 'NO';
-        } */
-$message = $arrayJson['events'][0]['message']['text'];
+if($txt != null)
+   {
+       echo "Study PHP at " . $txt . "<br>";
+    }
+/*$message = $arrayJson['events'][0]['message']['text'];
    //รับ id ของผู้ใช้
    
 $id = 'U633040010603551b111b2e3900ff1135';
