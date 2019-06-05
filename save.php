@@ -23,7 +23,7 @@
     $count_row = mysqli_num_rows($result);
 
         if($count_row < 1){        
-            $query = "INSERT INTO tbl_register(user_id,name,address,tel,date,uu) VALUE ('$id', '$name','$address','$phonenumber',NOW(),'$uu')"; 
+            $query = "INSERT INTO tbl_register(user_id,name,address,tel,date,uu) VALUE ('$id', '$name','$address','$phonenumber',NOW(),'ระยอง')"; 
             $resource = mysqli_query($connect,$query) or die ("error".mysqli_error());
             
             echo "<br/><br/>";
