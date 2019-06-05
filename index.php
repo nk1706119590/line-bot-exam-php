@@ -8,7 +8,7 @@
     $userPassword="cctsssystem";
     $dbName="db_uuline_test";
 
-    $name = $_GET['name'];
+    $name = $_REQUEST['dma'];
     $token_id = $_GET['token_id'];
     $channelid = $_GET['channelid'];
     $cns = $_GET['channelsecreat'];
@@ -24,12 +24,20 @@ $accessToken = $result;//ดึงมาจาก db
 $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
   
-$arrayHeader = array();
+/*$arrayHeader = array();
    $arrayHeader[] = "Content-Type: application/json";
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-   //รับข้อความจากผู้ใช้
+   //รับข้อความจากผู้ใช้*/
    
-echo $result;
+if($count_row > 1){        
+            $query = "select token_id from tbl_tokenidlinebot where name='ระยอง'"; 
+            $resource = mysqli_query($connect,$query) or die ("error".mysqli_error());
+            
+            echo $resource;
+        }
+        else{ 
+            
+        } 
 /*$message = $arrayJson['events'][0]['message']['text'];
    //รับ id ของผู้ใช้
    
