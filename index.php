@@ -47,13 +47,13 @@ $arrayHeader = array();
         else{ 
             echo 'NO';
         } */
-$message = $txt;
+//$message = $txt;
    //รับ id ของผู้ใช้
    
-$id = 'U633040010603551b111b2e3900ff1135';
+$id = "U633040010603551b111b2e3900ff1135";
    #ตัวอย่าง Message Type "Text + Sticker"
 
-if($message == $txt){
+if($txt != null){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "อันองงงง";
