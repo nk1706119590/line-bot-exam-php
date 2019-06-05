@@ -35,7 +35,7 @@ $arrayHeader = array();
    //รับข้อความจากผู้ใช้
    //echo $accessToken . "<br/><br/>";
    //echo $txt;
-if(true){        
+/*if(true){        
             if($txt != null)
             {
                echo "Study PHP at " . $txt . "<br>";
@@ -51,10 +51,10 @@ if(true){
 //$message = $txt;
    //รับ id ของผู้ใช้
    
-/*$id = "U633040010603551b111b2e3900ff1135";
+$id = "U633040010603551b111b2e3900ff1135";
    #ตัวอย่าง Message Type "Text + Sticker"
 
-if($_REQUEST["text"] != null){
+if($txt != null){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "อันองงงง";
