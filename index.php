@@ -1,16 +1,36 @@
 <?php
-   
-$accessToken = "dr0CTYutcnUKHQSfdWOv9yMQI1F3HljZfcHcIedbCuFft8kMzH7fGbaMspAqand3KD2bN2TqqubE1sYvCDGDDBrX3cDJ6lGdGZoFxoajJnBKsh+K4tz/fsflL71LpZ/fdXWg5ar7ppN8ycx1vUUKOwdB04t89/1O/w1cDnyilFU=";//copy ข้อความ Channel access token ตอนที่ตั้งค่า
+
+   $date = date("Y-m-d");
+    $time = date("H:i:s");
+
+    $serverName="1.179.246.109";
+    $userName="root";
+    $userPassword="cctsssystem";
+    $dbName="db_uuline_test";
+
+    $name = $_GET['name'];
+    $token_id = $_GET['token_id'];
+    $channelid = $_GET['channelid'];
+    $cns = $_GET['channelsecreat'];
+    
+    $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
+    mysqli_set_charset($connect,"utf8"); 
+
+    $sql = "select token_id from tbl_tokenidlinebot where name='ระยอง'"; 
+    $result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); 
+
+$accessToken = $result;//ดึงมาจาก db
    
 $content = file_get_contents('php://input');
-   $arrayJson = json_decode($content, true);
+$arrayJson = json_decode($content, true);
   
 $arrayHeader = array();
    $arrayHeader[] = "Content-Type: application/json";
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
    //รับข้อความจากผู้ใช้
    
-$message = $arrayJson['events'][0]['message']['text'];
+echo $result;
+/*$message = $arrayJson['events'][0]['message']['text'];
    //รับ id ของผู้ใช้
    
 $id = $arrayJson['events'][0]['source']['userId'];
@@ -42,5 +62,5 @@ function pushMsg($arrayHeader,$arrayPostData){
    
 }
 
-   exit;
+   exit;*/
 ?>
