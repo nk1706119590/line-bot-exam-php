@@ -33,7 +33,7 @@ $arrayHeader = array();
    $arrayHeader[] = "Content-Type: application/json";
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
    //รับข้อความจากผู้ใช้
-   
+   echo $accessToken;
 /*if(true){        
             if($result != null)
             {
@@ -50,7 +50,7 @@ $arrayHeader = array();
 //$message = $txt;
    //รับ id ของผู้ใช้
    
-$id = "U633040010603551b111b2e3900ff1135";
+/*$id = "U633040010603551b111b2e3900ff1135";
    #ตัวอย่าง Message Type "Text + Sticker"
 
 if($txt != null){
