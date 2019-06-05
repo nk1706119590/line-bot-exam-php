@@ -31,9 +31,9 @@ $arrayJson = json_decode($content, true);*/
    //รับข้อความจากผู้ใช้*/
    
 if(true){        
-            if($value != null)
+            if($result != null)
             {
-               echo "Study PHP at " . $value . "<br>";
+               echo "Study PHP at " . "<br>";
             }
             else{ 
             echo 'NO5555';
