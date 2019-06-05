@@ -16,7 +16,7 @@
     $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
     mysqli_set_charset($connect,"utf8"); 
 
-    $sql = "select token_id from tbl_tokenidlinebot where name=$name"; 
+    $sql = "select token_id from tbl_tokenidlinebot where name='$name'"; 
     $result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); 
 
 $accessToken = $result;//ดึงมาจาก db
@@ -25,14 +25,13 @@ $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
   
 
-echo $result;
 /*$arrayHeader = array();
    $arrayHeader[] = "Content-Type: application/json";
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
    //รับข้อความจากผู้ใช้*/
    
 if($count_row > 1){        
-            $query = "select token_id from tbl_tokenidlinebot where name='ระยอง'"; 
+            $query = "select token_id from tbl_tokenidlinebot where name='$name'"; 
             $resource = mysqli_query($connect,$query) or die ("error".mysqli_error());
             
             echo $resource;
