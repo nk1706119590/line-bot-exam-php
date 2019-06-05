@@ -34,7 +34,7 @@ $arrayHeader = array();
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
    //รับข้อความจากผู้ใช้
    echo $accessToken . "<br/>";
-   echo $_REQUSET['text'];
+   echo $_REQUSET["text"];
 /*if(true){        
             if($result != null)
             {
