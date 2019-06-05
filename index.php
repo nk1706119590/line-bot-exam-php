@@ -18,7 +18,7 @@
 
     $sql = "select token_id from tbl_tokenidlinebot where name='$name'"; 
     $result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); 
-
+    $value = mysql_fetch_object($result);
 //$accessToken = $result;//ดึงมาจาก db
    
 /*$content = file_get_contents('php://input');
@@ -31,9 +31,9 @@ $arrayJson = json_decode($content, true);*/
    //รับข้อความจากผู้ใช้*/
    
 if(true){        
-            if($result != null)
+            if($value != null)
             {
-               echo "Study PHP at " . $result . "<br>";
+               echo "Study PHP at " . $value . "<br>";
             }
             else{ 
             echo 'NO5555';
