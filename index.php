@@ -33,7 +33,7 @@ $arrayJson = json_decode($content, true);*/
 if(true){        
             if($result != null)
             {
-               echo "Study PHP at " . "<br>";
+               echo "Study PHP at " . $value . "<br>";
             }
             else{ 
             echo 'NO5555';
