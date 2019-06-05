@@ -16,7 +16,7 @@
     $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
     mysqli_set_charset($connect,"utf8"); 
 
-    $sql = "select token_id from tbl_tokenidlinebot where name='ระยอง'"; 
+    $sql = "select token_id from tbl_tokenidlinebot where name=$name"; 
     $result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); 
 
 $accessToken = $result;//ดึงมาจาก db
