@@ -19,10 +19,10 @@
     $sql = "select token_id from tbl_tokenidlinebot where name='$name'"; 
     $result = mysqli_query($connect,$sql) or die ("error".mysqli_error()); 
 
-$accessToken = $result;//ดึงมาจาก db
+//$accessToken = $result;//ดึงมาจาก db
    
-$content = file_get_contents('php://input');
-$arrayJson = json_decode($content, true);
+/*$content = file_get_contents('php://input');
+$arrayJson = json_decode($content, true);*/
   
 
 /*$arrayHeader = array();
@@ -34,10 +34,10 @@ if($count_row > 1){
             $query = "select token_id from tbl_tokenidlinebot where name='$name'"; 
             $resource = mysqli_query($connect,$query) or die ("error".mysqli_error());
             
-            echo $resource;
+            echo 'OK';
         }
         else{ 
-            
+            echo 'NO';
         } 
 /*$message = $arrayJson['events'][0]['message']['text'];
    //รับ id ของผู้ใช้
