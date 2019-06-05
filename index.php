@@ -12,6 +12,7 @@
     $token_id = $_GET['token_id'];
     $channelid = $_GET['channelid'];
     $cns = $_GET['channelsecreat'];
+    $txt = $_REQUSET['text'];
     
     $connect=mysqli_connect($serverName,$userName,$userPassword,$dbName)or die("connecterror".mysqli_error());
     mysqli_set_charset($connect,"utf8"); 
@@ -21,20 +22,19 @@
     
       while($row = mysqli_fetch_assoc($result)){
             $accessToken = $row['token_id'];
-         echo $accessToken;
       }
 //$accessToken = $result;//ดึงมาจาก db
    
-/*$content = file_get_contents('php://input');
-$arrayJson = json_decode($content, true);*/
+$content = file_get_contents('php://input');
+$arrayJson = json_decode($content, true);
   
 
-/*$arrayHeader = array();
+$arrayHeader = array();
    $arrayHeader[] = "Content-Type: application/json";
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
    //รับข้อความจากผู้ใช้
    
-if(true){        
+/*if(true){        
             if($result != null)
             {
                echo "Study PHP at " . $value . "<br>";
@@ -47,13 +47,13 @@ if(true){
         else{ 
             echo 'NO';
         } */
-/*$message = $arrayJson['events'][0]['message']['text'];
+$message = $txt;
    //รับ id ของผู้ใช้
    
-$id = $arrayJson['events'][0]['source']['userId'];
+$id = 'U633040010603551b111b2e3900ff1135';
    #ตัวอย่าง Message Type "Text + Sticker"
 
-if($message == "สวัสดี"){
+if($message == $txt){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "อันองงงง";
