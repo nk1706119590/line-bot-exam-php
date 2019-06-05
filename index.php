@@ -25,8 +25,8 @@
       }
 //$accessToken = $result;//ดึงมาจาก db
    
-$content = file_get_contents('php://input');
-$arrayJson = json_decode($content, true);
+//$content = file_get_contents('php://input');
+//$arrayJson = json_decode($content, true);
   
 
 $arrayHeader = array();
