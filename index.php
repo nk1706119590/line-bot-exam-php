@@ -30,11 +30,15 @@ $arrayJson = json_decode($content, true);*/
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
    //รับข้อความจากผู้ใช้*/
    
-if($count_row > 1){        
-            $query = "select token_id from tbl_tokenidlinebot where name='$name'"; 
-            $resource = mysqli_query($connect,$query) or die ("error".mysqli_error());
+if(true){        
+            if($result != null)
+            {
+               echo 'OK';
+            }
+            else{ 
+            echo 'NO5555';
+        }
             
-            echo 'OK';
         }
         else{ 
             echo 'NO';
